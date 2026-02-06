@@ -5,29 +5,69 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 8: CSS Grid & Responsive</title>
 <style>
-body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
-h1,h2,h3{color:#1e90ff;}
-section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
-details {margin-top:10px;margin-bottom:10px;}
-summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
-pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
-code {background:#eee;padding:2px 4px;border-radius:3px;}
+/* =====================
+   FULL WIDTH & LAYOUT
+   ===================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f5f5f5;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* =====================
+   DISABLE COPYING
+   ===================== */
+* {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+img, a { -webkit-user-drag: none !important; user-drag: none !important; pointer-events: none !important; }
+::selection { background: transparent; }
+::-moz-selection { background: transparent; }
+
+/* =====================
+   CONTENT STYLING
+   ===================== */
+main { width: 100%; padding: 20px; box-sizing: border-box; }
+h1,h2,h3 { color: #1e90ff; }
+section { background: #fff; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+details { margin-top: 10px; margin-bottom: 10px; }
+summary { cursor: pointer; font-weight: bold; padding: 10px; border-radius: 4px; background: #eee; font-size: 1.1em; }
+pre, code { background: #eee; padding: 10px; border-radius: 6px; overflow-x: auto; }
+.tip { background: #e8f4ff; padding: 10px; border-left: 4px solid #1e90ff; margin-top: 10px; }
 </style>
 </head>
 <body>
 
+<main>
 <h1>Week 8: CSS Grid & Responsive</h1>
-<p>This week teaches <strong>CSS Grid</strong> for powerful layouts and responsive techniques to adapt pages to different screens.</p>
+<p>This week focuses on **CSS Grid layouts** and responsive techniques to build flexible, modern web pages that adapt to any screen size. Lessons include examples, exercises, and tips to solidify understanding of rows, columns, gaps, alignment, and media queries.</p>
 
 <!-- Day 1 -->
 <section>
 <details open>
 <summary>Day 1: Introduction to CSS Grid</summary>
-<p><strong>Learn:</strong> Grid allows 2D layouts. Example:<br>
+<p><strong>Learn:</strong> CSS Grid allows you to build 2D layouts with rows and columns. It’s more flexible than float or Flexbox for complex layouts. Use <code>display: grid;</code> to start a container.</p>
+<p><strong>See:</strong></p>
 <pre>
-.container {display: grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
 </pre>
-<strong>Do:</strong> Create a container with 3 columns and 3 boxes. <strong>Check:</strong> Open the browser to see boxes aligned in a grid.</p>
+<p><strong>Do:</strong> Create a container with 3 columns and 3 boxes. Try resizing the browser to see how items stay aligned in the grid.</p>
+<p><strong>Check:</strong> Open browser to see boxes aligned in a uniform 3-column layout.</p>
+<div class="tip"><strong>Tip:</strong> Use <code>1fr</code> to make columns equally divide available space.</div>
 </details>
 </section>
 
@@ -35,11 +75,17 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 2: Grid Rows & Columns</summary>
-<p><strong>Learn:</strong> You can define explicit row and column sizes using <code>grid-template-rows</code> and <code>grid-template-columns</code>. Example:<br>
+<p><strong>Learn:</strong> Define specific sizes for rows and columns with <code>grid-template-rows</code> and <code>grid-template-columns</code>. You can mix pixels, fractions, and percentages for precise control.</p>
+<p><strong>See:</strong></p>
 <pre>
-.container {grid-template-columns: 100px 200px 100px; grid-template-rows: 50px 100px;}
+.container {
+  grid-template-columns: 100px 200px 100px;
+  grid-template-rows: 50px 100px;
+}
 </pre>
-<strong>Do:</strong> Create a container with three columns of different widths and two rows of different heights. <strong>Check:</strong> Open the browser and confirm boxes match the specified row heights and column widths.</p>
+<p><strong>Do:</strong> Build a grid with 3 columns of different widths and 2 rows of different heights. Experiment with mixing <code>px</code> and <code>fr</code> units.</p>
+<p><strong>Check:</strong> Browser displays boxes matching row heights and column widths as defined.</p>
+<div class="tip"><strong>Tip:</strong> Use fractions (<code>fr</code>) for responsive proportional sizing rather than fixed pixels.</div>
 </details>
 </section>
 
@@ -47,11 +93,20 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 3: Grid Gaps & Alignment</summary>
-<p><strong>Learn:</strong> Use <code>gap</code> for spacing between rows and columns. Align content using <code>justify-items</code> and <code>align-items</code>. Example:<br>
+<p><strong>Learn:</strong> The <code>gap</code> property sets spacing between grid items. Control item alignment with <code>justify-items</code> (horizontal) and <code>align-items</code> (vertical).</p>
+<p><strong>See:</strong></p>
 <pre>
-.container {display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; justify-items: center; align-items: center;}
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  justify-items: center;
+  align-items: center;
+}
 </pre>
-<strong>Do:</strong> Apply gaps between grid items and align them in the center. <strong>Check:</strong> Open in a browser to see proper spacing and alignment of items.</p>
+<p><strong>Do:</strong> Add gaps between items and center them horizontally and vertically.</p>
+<p><strong>Check:</strong> Browser shows items spaced evenly and aligned in the center of their grid cells.</p>
+<div class="tip"><strong>Tip:</strong> Combine <code>justify-items</code> and <code>align-items</code> for complete control of item placement.</div>
 </details>
 </section>
 
@@ -59,7 +114,8 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 4: Grid Areas</summary>
-<p><strong>Learn:</strong> Named grid areas allow you to assign boxes to specific regions of the grid. Example:<br>
+<p><strong>Learn:</strong> Named grid areas let you assign items to specific regions, making layouts easier to manage than positioning individual cells.</p>
+<p><strong>See:</strong></p>
 <pre>
 .container {
   display: grid;
@@ -67,14 +123,16 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
     "header header header"
     "sidebar main main"
     "footer footer footer";
-  grid-gap:10px;
+  grid-gap: 10px;
 }
-.header {grid-area: header;}
-.sidebar {grid-area: sidebar;}
-.main {grid-area: main;}
-.footer {grid-area: footer;}
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }
 </pre>
-<strong>Do:</strong> Create a layout using grid areas for header, sidebar, main, and footer. <strong>Check:</strong> Open browser to verify items occupy the correct grid regions.</p>
+<p><strong>Do:</strong> Create a layout with header, sidebar, main content, and footer using named areas.</p>
+<p><strong>Check:</strong> Browser shows items in the correct regions without using complicated positioning.</p>
+<div class="tip"><strong>Tip:</strong> Named areas make it easier to change layouts later without rewriting HTML.</div>
 </details>
 </section>
 
@@ -82,13 +140,19 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 5: Responsive Grid</summary>
-<p><strong>Learn:</strong> Use media queries to make grid layouts adapt to screen size. Example:<br>
+<p><strong>Learn:</strong> Use media queries to make grids adapt to different screen sizes. Change column layout based on device width.</p>
+<p><strong>See:</strong></p>
 <pre>
 @media (max-width: 600px) {
-  .container {grid-template-columns: 1fr; grid-template-rows: auto;}
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
 }
 </pre>
-<strong>Do:</strong> Make your 3-column layout stack into 1 column on small screens. <strong>Check:</strong> Resize the browser or use device mode to ensure the layout responds correctly.</p>
+<p><strong>Do:</strong> Make your 3-column layout collapse into 1 column on smaller screens.</p>
+<p><strong>Check:</strong> Resize browser or use developer tools to see layout adjust for mobile.</p>
+<div class="tip"><strong>Tip:</strong> Combine responsive grids with <code>fr</code> units for scalable layouts.</div>
 </details>
 </section>
 
@@ -96,11 +160,17 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 6: Grid Templates & Repeat</summary>
-<p><strong>Learn:</strong> The <code>repeat()</code> function simplifies grid templates. Example:<br>
+<p><strong>Learn:</strong> The <code>repeat()</code> function simplifies code when you need multiple rows or columns of the same size.</p>
+<p><strong>See:</strong></p>
 <pre>
-.container {grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 150px);}
+.container {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 150px);
+}
 </pre>
-<strong>Do:</strong> Apply repeat to your columns and rows for concise code. <strong>Check:</strong> Open in the browser to see equal columns and rows set by repeat.</p>
+<p><strong>Do:</strong> Use <code>repeat()</code> for your columns and rows instead of writing each individually.</p>
+<p><strong>Check:</strong> Browser shows grid with equally sized columns and rows set by repeat function.</p>
+<div class="tip"><strong>Tip:</strong> Use <code>repeat(auto-fit, minmax(150px, 1fr))</code> for fully responsive grids.</div>
 </details>
 </section>
 
@@ -108,9 +178,37 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 7: Review & Responsive Grid Page</summary>
-<p><strong>Learn:</strong> Combine everything learned in Week 8: explicit rows/columns, gaps, alignment, named grid areas, and responsive media queries. <strong>Do:</strong> Build a responsive profile page with header, main content, sidebar, and footer using CSS Grid. <strong>Check:</strong> Open the browser to verify items are correctly aligned, spaced, and adapt to different screen sizes. This completes Week 8.</p>
+<p><strong>Learn:</strong> Combine all Week 8 techniques: explicit rows/columns, gaps, alignment, named grid areas, repeat function, and responsive media queries. Build a professional page with a header, main content, sidebar, and footer using CSS Grid.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Create a container with header, main, sidebar, and footer using grid areas.</li>
+<li>Use gaps and alignment to space items nicely.</li>
+<li>Apply repeat() and fractional units for consistent sizing.</li>
+<li>Add a media query to make the layout responsive for mobile.</li>
+</ul>
+<p><strong>Check:</strong> Browser shows a clean, responsive page where all items align correctly and adapt to different screen widths. Congratulations, Week 8 is complete!</p>
+<div class="tip"><strong>Tip:</strong> Use CSS Grid for complex layouts instead of floats; it simplifies responsive design and reduces extra CSS.</div>
 </details>
 </section>
+
+</main>
+
+<script>
+// Disable right-click
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Disable copy, cut, paste, select, drag
+['copy','cut','paste','selectstart','dragstart'].forEach(event => {
+  document.addEventListener(event, e => e.preventDefault());
+});
+
+// Disable keyboard shortcuts (Ctrl/Cmd + C/X/V/A/S/U/P)
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && ['c','x','v','a','s','u','p'].includes(e.key.toLowerCase())) {
+    e.preventDefault();
+  }
+});
+</script>
 
 </body>
 </html>
