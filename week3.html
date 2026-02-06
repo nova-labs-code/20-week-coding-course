@@ -5,25 +5,109 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 3: CSS Basics</title>
 <style>
-body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
-h1,h2,h3{color:#1e90ff;}
-section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
-details {margin-top:10px;margin-bottom:10px;}
-summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
-pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
-code {background:#eee;padding:2px 4px;border-radius:3px;}
+/* =====================
+   FULL WIDTH LAYOUT
+   ===================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f5f5f5;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* =====================
+   DISABLE COPYING
+   ===================== */
+* {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+img, a {
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+  pointer-events: none !important;
+}
+
+::selection { background: transparent; }
+::-moz-selection { background: transparent; }
+
+/* =====================
+   CONTENT STYLING
+   ===================== */
+main {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h1, h2, h3 { color: #1e90ff; }
+
+section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+details {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 4px;
+  background: #eee;
+  font-size: 1.1em;
+}
+
+pre, code {
+  background: #eee;
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.tip {
+  background: #e8f4ff;
+  padding: 10px;
+  border-left: 4px solid #1e90ff;
+  margin-top: 10px;
+}
 </style>
 </head>
 <body>
 
+<main>
 <h1>Week 3: CSS Basics</h1>
-<p>Welcome to Week 3! This week we focus on **CSS styling** to make your HTML pages visually appealing. Each day follows the “Learn → See → Do → Check” method, with code examples included, and should take about 30 minutes.</p>
+<p>Welcome to Week 3! This week focuses on **CSS styling** to make your HTML pages visually appealing and organized. You will learn **inline styles, internal CSS, classes & IDs, colors, fonts, spacing, borders, and more**. Each day follows the “Learn → See → Do → Check” method, and lessons are longer with extra examples and exercises for better understanding.</p>
 
 <!-- Day 1 -->
 <section>
 <details open>
 <summary>Day 1: Introduction to CSS & Inline Styles</summary>
-<p><strong>Learn:</strong> CSS (Cascading Style Sheets) adds style to HTML elements. The simplest way is using the <code>style</code> attribute inline. <strong>See:</strong> For example, <code>&lt;p style="color:blue; font-size:18px;"&gt;Blue text&lt;/p&gt;</code> changes text color and size. <strong>Do:</strong> Add inline styles to the paragraphs and headings of your profile page to change text color, font size, and style. <strong>Check:</strong> Open the page in a browser to see the applied styles and experiment by changing colors and sizes to understand the impact of inline CSS.</p>
+<p><strong>Learn:</strong> CSS (Cascading Style Sheets) adds visual style to your HTML elements. Inline styles are applied directly to elements using the <code>style</code> attribute. Inline styles override default styles but are not recommended for large projects.</p>
+<p><strong>See:</strong></p>
+<pre>
+&lt;p style="color:blue; font-size:18px; font-weight:bold;"&gt;Blue bold text&lt;/p&gt;
+&lt;h1 style="color:red; font-family: 'Courier New', monospace;"&gt;Hello World&lt;/h1&gt;
+</pre>
+<p><strong>Do:</strong> Add inline styles to headings and paragraphs on your profile page. Change text color, font size, and font family for each element. Try bold or italic styles for emphasis.</p>
+<p><strong>Check:</strong> Open in a browser and confirm that styles appear correctly. Experiment with different font families, colors, and sizes to see the effect.</p>
+<div class="tip"><strong>Tip:</strong> Inline styles are quick for testing, but for consistency across multiple pages, use internal or external CSS.</div>
 </details>
 </section>
 
@@ -31,13 +115,23 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 2: Internal CSS & Selectors</summary>
-<p><strong>Learn:</strong> CSS can be added internally inside a <code>&lt;style&gt;</code> tag in the <code>&lt;head&gt;</code> of your HTML. Selectors target elements like tags, classes, or IDs. <strong>See:</strong> 
-<pre>&lt;style&gt;
-  h1 {color:darkblue;}
-  p {font-family: Arial; font-size:16px;}
+<p><strong>Learn:</strong> Internal CSS is written inside a <code>&lt;style&gt;</code> tag in the HTML <code>&lt;head&gt;</code>. Selectors let you target specific elements by tag, class, or ID.</p>
+<p><strong>See:</strong></p>
+<pre>
+&lt;style&gt;
+  h1 { color: darkblue; font-size: 28px; }
+  p { font-family: Arial; font-size:16px; line-height:1.8; }
+  ul li { margin-bottom:5px; }
 &lt;/style&gt;
 </pre>
-<strong>Do:</strong> Add a <code>&lt;style&gt;</code> section in your page and style headings and paragraphs using tag selectors. <strong>Check:</strong> Make sure changes appear in the browser and experiment with different font sizes and colors.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Add an internal <code>&lt;style&gt;</code> block in your page.</li>
+<li>Style all headings, paragraphs, and lists using tag selectors.</li>
+<li>Experiment with line-height, font sizes, and colors to make content readable.</li>
+</ul>
+<p><strong>Check:</strong> Verify in the browser that styles are applied. Try changing selector properties and see how the page updates.</p>
+<div class="tip"><strong>Tip:</strong> Internal CSS keeps styling in one place and is easier to manage than inline styles.</div>
 </details>
 </section>
 
@@ -45,16 +139,25 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 3: Classes & IDs</summary>
-<p><strong>Learn:</strong> Classes (<code>class</code>) and IDs (<code>id</code>) let you target specific elements with CSS. <strong>See:</strong> 
-<pre>&lt;h2 class="section-title"&gt;About Me&lt;/h2&gt;
-&lt;p id="bio"&gt;Hello!&lt;/p&gt;
+<p><strong>Learn:</strong> Classes (<code>class</code>) and IDs (<code>id</code>) allow more precise styling. IDs are unique and used once per page, while classes can be reused multiple times.</p>
+<p><strong>See:</strong></p>
+<pre>
+&lt;h2 class="section-title"&gt;About Me&lt;/h2&gt;
+&lt;p id="bio"&gt;Hello!&lt;/p;
 
 &lt;style&gt;
-  .section-title {color:green;}
-  #bio {font-style:italic;}
+  .section-title { color: green; font-size:20px; }
+  #bio { font-style: italic; color: #555; }
 &lt;/style&gt;
 </pre>
-<strong>Do:</strong> Assign classes to your section headings and an ID to your main paragraph, then style them differently. <strong>Check:</strong> Verify in the browser that each element has the intended style.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Assign classes to section headings like “Hobbies” or “Skills”.</li>
+<li>Assign an ID to your main paragraph and style it differently.</li>
+<li>Try using multiple classes on one element for combined effects.</li>
+</ul>
+<p><strong>Check:</strong> Open in a browser to see if each element has the correct style. Try changing colors and fonts to compare results.</p>
+<div class="tip"><strong>Tip:</strong> Use descriptive class and ID names for clarity, e.g., <code>class="profile-heading"</code> or <code>id="main-bio"</code>.</div>
 </details>
 </section>
 
@@ -62,12 +165,21 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 4: Colors & Backgrounds</summary>
-<p><strong>Learn:</strong> CSS allows text and backgrounds to be styled with colors. You can use names, hex codes, or RGB. <strong>See:</strong>
+<p><strong>Learn:</strong> CSS lets you style text, backgrounds, and even borders. You can use color names, HEX codes, RGB, or HSL. Background colors improve readability and highlight sections.</p>
+<p><strong>See:</strong></p>
 <pre>
-p {color: #333333; background-color: #f0f0f0;}
-h1 {color: red;}
+p { color: #333333; background-color: #f0f0f0; padding:10px; }
+h1 { color: darkred; }
+div.highlight { background-color: yellow; }
 </pre>
-<strong>Do:</strong> Style your profile page paragraphs with a light background and headings with colors that stand out. <strong>Check:</strong> Open in a browser and experiment with different color combinations for readability.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Set background colors for different sections of your profile page.</li>
+<li>Change paragraph text color to complement the background.</li>
+<li>Highlight important information with a colored <code>div</code>.</li>
+</ul>
+<p><strong>Check:</strong> Open in a browser to ensure text is readable against backgrounds. Adjust colors if needed for clarity and contrast.</p>
+<div class="tip"><strong>Tip:</strong> Use contrasting colors for text and background to make content easy to read.</div>
 </details>
 </section>
 
@@ -75,12 +187,20 @@ h1 {color: red;}
 <section>
 <details>
 <summary>Day 5: Fonts & Text Alignment</summary>
-<p><strong>Learn:</strong> CSS controls font-family, size, weight, and alignment. <strong>See:</strong>
+<p><strong>Learn:</strong> CSS controls font type, size, weight, and alignment. You can use multiple fonts as fallback, adjust alignment with <code>text-align</code>, and emphasize with <code>font-weight</code>.</p>
+<p><strong>See:</strong></p>
 <pre>
-p {font-family: 'Courier New', monospace; font-size:16px; text-align:center;}
-h2 {font-weight:bold; text-align:left;}
+p { font-family: 'Courier New', monospace; font-size:16px; text-align:center; }
+h2 { font-weight:bold; text-align:left; font-family: 'Georgia', serif; }
 </pre>
-<strong>Do:</strong> Apply different fonts to headings and paragraphs and try center, left, and right alignment. <strong>Check:</strong> Open in a browser to see how font choices and alignment affect readability and page appearance.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Apply different fonts to headings and paragraphs.</li>
+<li>Experiment with center, left, and right alignment for different sections.</li>
+<li>Try bold, italic, or lighter font weights.</li>
+</ul>
+<p><strong>Check:</strong> Open in a browser to see how font choices and alignment affect readability and page layout.</p>
+<div class="tip"><strong>Tip:</strong> Always provide fallback fonts for better compatibility across browsers.</div>
 </details>
 </section>
 
@@ -88,11 +208,20 @@ h2 {font-weight:bold; text-align:left;}
 <section>
 <details>
 <summary>Day 6: Borders, Padding & Margins</summary>
-<p><strong>Learn:</strong> CSS controls spacing and borders with <code>border</code>, <code>padding</code>, and <code>margin</code>. <strong>See:</strong>
+<p><strong>Learn:</strong> Borders define element edges, padding adds space inside, and margin adds space outside. This improves spacing, readability, and structure.</p>
+<p><strong>See:</strong></p>
 <pre>
-p {border: 1px solid #ccc; padding:10px; margin:15px;}
+p { border: 1px solid #ccc; padding: 15px; margin: 20px 0; border-radius:5px; }
+div.section { border:2px dashed #1e90ff; padding:10px; margin-bottom:15px; }
 </pre>
-<strong>Do:</strong> Add borders around paragraphs, add padding inside, and margins outside. <strong>Check:</strong> Observe how spacing changes in the browser and experiment with different border styles and sizes.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Add borders around paragraphs and sections.</li>
+<li>Experiment with different border styles: solid, dashed, dotted, double.</li>
+<li>Adjust padding inside elements and margin outside elements.</li>
+</ul>
+<p><strong>Check:</strong> Open in a browser to observe how spacing and borders affect layout. Ensure elements do not overlap and text remains readable.</p>
+<div class="tip"><strong>Tip:</strong> Use border-radius to make rounded corners for a modern look.</div>
 </details>
 </section>
 
@@ -100,9 +229,41 @@ p {border: 1px solid #ccc; padding:10px; margin:15px;}
 <section>
 <details>
 <summary>Day 7: Review & Mini Styled Page</summary>
-<p><strong>Learn:</strong> Combine everything from Week 3 to style your Week 1/2 profile page. Use internal CSS, classes, IDs, colors, fonts, borders, padding, and margins to make your page visually appealing and readable. <strong>Do:</strong> Build a styled profile page and <strong>Check:</strong> Open it in a browser to verify that all styles apply correctly, text is readable, sections are clear, and the layout looks organized. This final exercise consolidates all CSS basics for Week 3.</p>
+<p><strong>Learn:</strong> Combine everything from Week 3 to style your Week 1/2 profile page. Use internal CSS, classes, IDs, colors, fonts, spacing, and borders to create a visually organized page.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Style all headings and paragraphs consistently.</li>
+<li>Add colored backgrounds to sections.</li>
+<li>Use classes and IDs to apply unique styles.</li>
+<li>Include borders, padding, and margins for spacing.</li>
+<li>Check readability on different screen sizes.</li>
+</ul>
+<p><strong>Check:</strong> Open the page in a browser. Confirm that all styles are applied correctly, text is readable, sections are visually distinct, and overall layout looks professional.</p>
+<div class="tip"><strong>Tip:</strong> Review your CSS for repeated code. Consider using classes to reduce redundancy and keep your code clean.</div>
 </details>
 </section>
+
+</main>
+
+<!-- =====================
+     DISABLE COPY & SHORTCUTS
+     ===================== -->
+<script>
+// Disable right-click
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Disable copy, cut, paste, select, drag
+['copy','cut','paste','selectstart','dragstart'].forEach(event => {
+  document.addEventListener(event, e => e.preventDefault());
+});
+
+// Disable keyboard shortcuts (Ctrl/Cmd + C/X/V/A/S/U/P)
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && ['c','x','v','a','s','u','p'].includes(e.key.toLowerCase())) {
+    e.preventDefault();
+  }
+});
+</script>
 
 </body>
 </html>
