@@ -5,31 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 12: JS Arrays & Dynamic Pages</title>
 <style>
-body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
-h1,h2,h3{color:#1e90ff;}
-section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
-details {margin-top:10px;margin-bottom:10px;}
-summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
-pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
-code {background:#eee;padding:2px 4px;border-radius:3px;}
-button {padding:5px 10px; margin-top:5px;}
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f5f5f5;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* =====================
+   COPY/DRAG PROTECTION
+   ===================== */
+* {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+img, a { -webkit-user-drag: none !important; user-drag: none !important; pointer-events: none !important; }
+::selection { background: transparent; }
+::-moz-selection { background: transparent; }
+
+/* =====================
+   STYLING
+   ===================== */
+main { width: 100%; padding: 20px; box-sizing: border-box; }
+h1,h2,h3 { color: #1e90ff; }
+section { background: #fff; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+details { margin-top: 10px; margin-bottom: 10px; }
+summary { cursor: pointer; font-weight: bold; padding: 10px; border-radius: 4px; background: #eee; font-size: 1.1em; }
+pre, code { background: #eee; padding: 10px; border-radius: 6px; overflow-x: auto; }
+button { padding: 5px 10px; margin-top: 5px; cursor: pointer; }
+.tip { background: #e8f4ff; padding: 10px; border-left: 4px solid #1e90ff; margin-top: 10px; }
 </style>
 </head>
 <body>
 
+<main>
 <h1>Week 12: JS Arrays & Dynamic Pages</h1>
-<p>This week introduces **arrays and dynamic page updates**, allowing multiple values to be stored, iterated, and displayed on your page.</p>
+<p>This week introduces **arrays and dynamic page updates**, allowing multiple values to be stored, iterated, and displayed interactively.</p>
 
 <!-- Day 1 -->
 <section>
 <details open>
 <summary>Day 1: Creating Arrays</summary>
-<p><strong>Learn:</strong> Arrays store multiple values. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Arrays store multiple values in a single variable.</p>
 <pre>
 let fruits = ["apple", "banana", "orange"];
 console.log(fruits);
 </pre>
-<strong>Do:</strong> Create an array with your top 5 favorite foods. <strong>Check:</strong> Console logs all items correctly.</p>
+<p><strong>Do:</strong> Create an array with your top 5 favorite foods.</p>
+<div class="tip"><strong>Tip:</strong> Arrays are zero-indexed: the first item is at index 0.</div>
 </details>
 </section>
 
@@ -37,12 +67,13 @@ console.log(fruits);
 <section>
 <details>
 <summary>Day 2: Accessing & Modifying Arrays</summary>
-<p><strong>Learn:</strong> Access items by index, modify values. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Access items by index and modify values.</p>
 <pre>
 console.log(fruits[1]); // banana
 fruits[0] = "mango";
 </pre>
-<strong>Do:</strong> Change the first item in your array and log it. <strong>Check:</strong> Browser console shows updated value.</p>
+<p><strong>Do:</strong> Change the first item in your array and log it.</p>
+<div class="tip"><strong>Tip:</strong> Use <code>fruits.length</code> to find array size and avoid going out-of-bounds.</div>
 </details>
 </section>
 
@@ -50,14 +81,15 @@ fruits[0] = "mango";
 <section>
 <details>
 <summary>Day 3: Array Methods (push, pop, shift, unshift)</summary>
-<p><strong>Learn:</strong> Add/remove elements easily. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Easily add/remove elements:</p>
 <pre>
-fruits.push("grape"); // add end
-fruits.pop(); // remove end
-fruits.unshift("kiwi"); // add start
-fruits.shift(); // remove start
+fruits.push("grape");    // add end
+fruits.pop();             // remove end
+fruits.unshift("kiwi");   // add start
+fruits.shift();           // remove start
 </pre>
-<strong>Do:</strong> Manipulate your array and log changes each time. <strong>Check:</strong> Console reflects modifications.</p>
+<p><strong>Do:</strong> Manipulate your array and log changes each time.</p>
+<div class="tip"><strong>Tip:</strong> <code>push/pop</code> affect the end; <code>unshift/shift</code> affect the start.</div>
 </details>
 </section>
 
@@ -65,13 +97,14 @@ fruits.shift(); // remove start
 <section>
 <details>
 <summary>Day 4: Looping Through Arrays</summary>
-<p><strong>Learn:</strong> Use loops to process array items. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Use loops to process array items.</p>
 <pre>
 for (let i = 0; i < fruits.length; i++) {
   console.log(fruits[i]);
 }
 </pre>
-<strong>Do:</strong> Log all items of your array with a message like "I like ___". <strong>Check:</strong> Browser console shows correct output.</p>
+<p><strong>Do:</strong> Log all items with a message like "I like ___".</p>
+<div class="tip"><strong>Tip:</strong> You can also use <code>forEach</code> for cleaner iteration.</div>
 </details>
 </section>
 
@@ -79,14 +112,15 @@ for (let i = 0; i < fruits.length; i++) {
 <section>
 <details>
 <summary>Day 5: Display Array Items on Page</summary>
-<p><strong>Learn:</strong> Use DOM to display array content dynamically. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Use the DOM to display array content dynamically.</p>
 <pre>
 let list = document.getElementById("myList");
 fruits.forEach(function(fruit) {
   list.innerHTML += "&lt;li&gt;" + fruit + "&lt;/li&gt;";
 });
 </pre>
-<strong>Do:</strong> Create &lt;ul id="myList"&gt;&lt;/ul&gt; and dynamically add array items. <strong>Check:</strong> Browser shows list of items.</p>
+<p><strong>Do:</strong> Create <code>&lt;ul id="myList"&gt;&lt;/ul&gt;</code> and dynamically add array items.</p>
+<div class="tip"><strong>Tip:</strong> Using <code>innerHTML +=</code> works for small lists; for large lists, consider creating elements with <code>document.createElement</code>.</div>
 </details>
 </section>
 
@@ -94,7 +128,7 @@ fruits.forEach(function(fruit) {
 <section>
 <details>
 <summary>Day 6: Interactive Array Updates</summary>
-<p><strong>Learn:</strong> Use input fields to add array items. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Add items to arrays via input fields and buttons.</p>
 <pre>
 &lt;input id="fruitInput"&gt;
 &lt;button onclick="addFruit()"&gt;Add&lt;/button&gt;
@@ -108,7 +142,8 @@ function addFruit() {
 }
 &lt;/script&gt;
 </pre>
-<strong>Do:</strong> Create input and button to add items to your array dynamically. <strong>Check:</strong> Browser console shows updated array.</p>
+<p><strong>Do:</strong> Create input and button to add items to your array dynamically.</p>
+<div class="tip"><strong>Tip:</strong> Always check that the input is not empty before adding.</div>
 </details>
 </section>
 
@@ -116,9 +151,31 @@ function addFruit() {
 <section>
 <details>
 <summary>Day 7: Review & Mini Dynamic Page</summary>
-<p><strong>Learn:</strong> Combine arrays, loops, and DOM updates. <strong>Do:</strong> Build a simple dynamic shopping list: enter items, click "Add", and see them appear on the page. <strong>Check:</strong> Browser updates correctly. This completes Week 12.</p>
+<p><strong>Learn:</strong> Combine arrays, loops, and DOM updates for interactive pages.</p>
+<p><strong>Do:</strong> Build a simple dynamic shopping list: enter items, click "Add", and see them appear on the page.</p>
+<div class="tip"><strong>Tip:</strong> Clear the input field after adding to improve user experience.</div>
+<p><strong>Check:</strong> Browser updates correctly. This completes Week 12.</p>
 </details>
 </section>
+
+</main>
+
+<script>
+// Disable right-click
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Disable copy, cut, paste, select, drag
+['copy','cut','paste','selectstart','dragstart'].forEach(event => {
+  document.addEventListener(event, e => e.preventDefault());
+});
+
+// Disable keyboard shortcuts (Ctrl/Cmd + C/X/V/A/S/U/P)
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && ['c','x','v','a','s','u','p'].includes(e.key.toLowerCase())) {
+    e.preventDefault();
+  }
+});
+</script>
 
 </body>
 </html>
