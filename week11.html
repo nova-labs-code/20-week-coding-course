@@ -5,26 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 11: JS Conditionals & Loops</title>
 <style>
-body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
-h1,h2,h3{color:#1e90ff;}
-section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
-details {margin-top:10px;margin-bottom:10px;}
-summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
-pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
-code {background:#eee;padding:2px 4px;border-radius:3px;}
-button {padding:5px 10px; margin-top:5px;}
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f5f5f5;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* =====================
+   COPY/DRAG PROTECTION
+   ===================== */
+* {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+img, a { -webkit-user-drag: none !important; user-drag: none !important; pointer-events: none !important; }
+::selection { background: transparent; }
+::-moz-selection { background: transparent; }
+
+/* =====================
+   STYLING
+   ===================== */
+main { width: 100%; padding: 20px; box-sizing: border-box; }
+h1,h2,h3 { color: #1e90ff; }
+section { background: #fff; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+details { margin-top: 10px; margin-bottom: 10px; }
+summary { cursor: pointer; font-weight: bold; padding: 10px; border-radius: 4px; background: #eee; font-size: 1.1em; }
+pre, code { background: #eee; padding: 10px; border-radius: 6px; overflow-x: auto; }
+button { padding: 5px 10px; margin-top: 5px; cursor: pointer; }
+.tip { background: #e8f4ff; padding: 10px; border-left: 4px solid #1e90ff; margin-top: 10px; }
 </style>
 </head>
 <body>
 
+<main>
 <h1>Week 11: JS Conditionals & Loops</h1>
-<p>This week focuses on **decision making and loops** in JavaScript, letting your page respond dynamically to conditions and repeat tasks efficiently.</p>
+<p>This week focuses on **decision making and loops** in JavaScript, letting your programs respond dynamically to conditions and repeat tasks efficiently.</p>
 
 <!-- Day 1 -->
 <section>
 <details open>
 <summary>Day 1: If Statements</summary>
-<p><strong>Learn:</strong> Use <code>if</code> to execute code only when conditions are true. <strong>See:</strong><br>
+<p><strong>Learn:</strong> <code>if</code> statements execute code only when a condition is true. Use <code>else</code> for fallback behavior.</p>
 <pre>
 let age = 16;
 if (age >= 18) {
@@ -33,7 +62,8 @@ if (age >= 18) {
   console.log("Too young to vote");
 }
 </pre>
-<strong>Do:</strong> Create a variable for your age and log a message based on if you’re a teenager or not. <strong>Check:</strong> Console displays correct message.</p>
+<p><strong>Do:</strong> Create a variable for your age and log a message based on whether you’re a teenager or not.</p>
+<div class="tip"><strong>Tip:</strong> Conditions must evaluate to <code>true</code> or <code>false</code>. Use comparison operators like <code>&gt;, &lt;, ===, !==</code>.</div>
 </details>
 </section>
 
@@ -41,14 +71,15 @@ if (age >= 18) {
 <section>
 <details>
 <summary>Day 2: Else If & Nested Conditions</summary>
-<p><strong>Learn:</strong> <code>else if</code> handles multiple conditions, nested <code>if</code> allows complex logic. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Use <code>else if</code> for multiple conditions and nested <code>if</code> for more complex logic.</p>
 <pre>
 let score = 85;
 if (score >= 90) {console.log("A");}
 else if (score >= 80) {console.log("B");}
 else {console.log("C");}
 </pre>
-<strong>Do:</strong> Create grade messages for three ranges. <strong>Check:</strong> Console prints correct grade.</p>
+<p><strong>Do:</strong> Create grade messages for three ranges: A, B, C.</p>
+<div class="tip"><strong>Tip:</strong> Nesting allows checking sub-conditions, but try to keep code readable.</div>
 </details>
 </section>
 
@@ -56,13 +87,14 @@ else {console.log("C");}
 <section>
 <details>
 <summary>Day 3: For Loops</summary>
-<p><strong>Learn:</strong> Loops repeat code. <strong>See:</strong><br>
+<p><strong>Learn:</strong> <code>for</code> loops repeat code a set number of times using a counter variable.</p>
 <pre>
 for (let i = 1; i <= 5; i++) {
   console.log("Number " + i);
 }
 </pre>
-<strong>Do:</strong> Log numbers 1–10 using a for loop. <strong>Check:</strong> Verify numbers in console.</p>
+<p><strong>Do:</strong> Log numbers 1–10 using a for loop.</p>
+<div class="tip"><strong>Tip:</strong> Loops can iterate over arrays, strings, or ranges efficiently.</div>
 </details>
 </section>
 
@@ -70,7 +102,7 @@ for (let i = 1; i <= 5; i++) {
 <section>
 <details>
 <summary>Day 4: While Loops</summary>
-<p><strong>Learn:</strong> <code>while</code> loops run while a condition is true. <strong>See:</strong><br>
+<p><strong>Learn:</strong> <code>while</code> loops continue executing while a condition is true.</p>
 <pre>
 let i = 1;
 while (i <= 5) {
@@ -78,7 +110,8 @@ while (i <= 5) {
   i++;
 }
 </pre>
-<strong>Do:</strong> Use a while loop to log even numbers between 2 and 20. <strong>Check:</strong> Console shows all even numbers.</p>
+<p><strong>Do:</strong> Use a while loop to log even numbers between 2 and 20.</p>
+<div class="tip"><strong>Tip:</strong> Ensure the loop variable changes; otherwise, you may create an infinite loop.</div>
 </details>
 </section>
 
@@ -86,7 +119,7 @@ while (i <= 5) {
 <section>
 <details>
 <summary>Day 5: Break & Continue</summary>
-<p><strong>Learn:</strong> <code>break</code> exits a loop early, <code>continue</code> skips to the next iteration. <strong>See:</strong><br>
+<p><strong>Learn:</strong> <code>break</code> stops a loop immediately, <code>continue</code> skips the current iteration.</p>
 <pre>
 for (let i=1; i<=10; i++) {
   if (i===5) break;
@@ -97,7 +130,8 @@ for (let i=1; i<=5; i++) {
   console.log(i);
 }
 </pre>
-<strong>Do:</strong> Create a loop that skips multiples of 3 and stops at 12. <strong>Check:</strong> Verify numbers printed in console.</p>
+<p><strong>Do:</strong> Create a loop that skips multiples of 3 and stops at 12.</p>
+<div class="tip"><strong>Tip:</strong> Use <code>break</code> for early exit and <code>continue</code> to skip unwanted iterations without exiting the loop.</div>
 </details>
 </section>
 
@@ -105,14 +139,15 @@ for (let i=1; i<=5; i++) {
 <section>
 <details>
 <summary>Day 6: Combining Conditionals & Loops</summary>
-<p><strong>Learn:</strong> Combine loops and conditionals to create dynamic checks. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Combine loops and conditions to handle dynamic scenarios efficiently.</p>
 <pre>
 for (let i=1; i<=10; i++) {
   if (i % 2 === 0) console.log(i + " is even");
   else console.log(i + " is odd");
 }
 </pre>
-<strong>Do:</strong> Log numbers 1–20 and state whether each is even or odd. <strong>Check:</strong> Console outputs correct results.</p>
+<p><strong>Do:</strong> Log numbers 1–20 and indicate if each is even or odd.</p>
+<div class="tip"><strong>Tip:</strong> Modulus operator <code>%</code> is useful for checking divisibility.</div>
 </details>
 </section>
 
@@ -120,9 +155,37 @@ for (let i=1; i<=10; i++) {
 <section>
 <details>
 <summary>Day 7: Review & Mini Interactive Script</summary>
-<p><strong>Learn:</strong> Combine loops and conditionals to solve small problems. <strong>Do:</strong> Create a program that asks for a number and prints all numbers from 1 to that number with "Fizz" if divisible by 3, "Buzz" if divisible by 5, or "FizzBuzz" if divisible by both. <strong>Check:</strong> Browser console shows correct outputs. This completes Week 11.</p>
+<p><strong>Learn:</strong> Combine conditionals and loops to create small programs like FizzBuzz or number classification.</p>
+<p><strong>Do:</strong> Ask the user for a number and print numbers from 1 to that number with:</p>
+<ul>
+<li>"Fizz" if divisible by 3</li>
+<li>"Buzz" if divisible by 5</li>
+<li>"FizzBuzz" if divisible by both</li>
+<li>The number itself otherwise</li>
+</ul>
+<p><strong>Check:</strong> Browser console should show correct outputs. This completes Week 11.</p>
+<div class="tip"><strong>Tip:</strong> Try different ranges and conditions for practice. Loops plus conditionals form the backbone of logic in JS.</div>
 </details>
 </section>
+
+</main>
+
+<script>
+// Disable right-click
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Disable copy, cut, paste, select, drag
+['copy','cut','paste','selectstart','dragstart'].forEach(event => {
+  document.addEventListener(event, e => e.preventDefault());
+});
+
+// Disable keyboard shortcuts (Ctrl/Cmd + C/X/V/A/S/U/P)
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && ['c','x','v','a','s','u','p'].includes(e.key.toLowerCase())) {
+    e.preventDefault();
+  }
+});
+</script>
 
 </body>
 </html>
