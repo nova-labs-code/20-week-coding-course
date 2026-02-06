@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 3: CSS Basics</title>
+<style>
+body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
+h1,h2,h3{color:#1e90ff;}
+section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
+details {margin-top:10px;margin-bottom:10px;}
+summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
+pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
+code {background:#eee;padding:2px 4px;border-radius:3px;}
+</style>
+</head>
+<body>
+
+<h1>Week 3: CSS Basics</h1>
+<p>Welcome to Week 3! This week we focus on **CSS styling** to make your HTML pages visually appealing. Each day follows the “Learn → See → Do → Check” method, with code examples included, and should take about 30 minutes.</p>
+
+<!-- Day 1 -->
+<section>
+<details open>
+<summary>Day 1: Introduction to CSS & Inline Styles</summary>
+<p><strong>Learn:</strong> CSS (Cascading Style Sheets) adds style to HTML elements. The simplest way is using the <code>style</code> attribute inline. <strong>See:</strong> For example, <code>&lt;p style="color:blue; font-size:18px;"&gt;Blue text&lt;/p&gt;</code> changes text color and size. <strong>Do:</strong> Add inline styles to the paragraphs and headings of your profile page to change text color, font size, and style. <strong>Check:</strong> Open the page in a browser to see the applied styles and experiment by changing colors and sizes to understand the impact of inline CSS.</p>
+</details>
+</section>
+
+<!-- Day 2 -->
+<section>
+<details>
+<summary>Day 2: Internal CSS & Selectors</summary>
+<p><strong>Learn:</strong> CSS can be added internally inside a <code>&lt;style&gt;</code> tag in the <code>&lt;head&gt;</code> of your HTML. Selectors target elements like tags, classes, or IDs. <strong>See:</strong> 
+<pre>&lt;style&gt;
+  h1 {color:darkblue;}
+  p {font-family: Arial; font-size:16px;}
+&lt;/style&gt;
+</pre>
+<strong>Do:</strong> Add a <code>&lt;style&gt;</code> section in your page and style headings and paragraphs using tag selectors. <strong>Check:</strong> Make sure changes appear in the browser and experiment with different font sizes and colors.</p>
+</details>
+</section>
+
+<!-- Day 3 -->
+<section>
+<details>
+<summary>Day 3: Classes & IDs</summary>
+<p><strong>Learn:</strong> Classes (<code>class</code>) and IDs (<code>id</code>) let you target specific elements with CSS. <strong>See:</strong> 
+<pre>&lt;h2 class="section-title"&gt;About Me&lt;/h2&gt;
+&lt;p id="bio"&gt;Hello!&lt;/p&gt;
+
+&lt;style&gt;
+  .section-title {color:green;}
+  #bio {font-style:italic;}
+&lt;/style&gt;
+</pre>
+<strong>Do:</strong> Assign classes to your section headings and an ID to your main paragraph, then style them differently. <strong>Check:</strong> Verify in the browser that each element has the intended style.</p>
+</details>
+</section>
+
+<!-- Day 4 -->
+<section>
+<details>
+<summary>Day 4: Colors & Backgrounds</summary>
+<p><strong>Learn:</strong> CSS allows text and backgrounds to be styled with colors. You can use names, hex codes, or RGB. <strong>See:</strong>
+<pre>
+p {color: #333333; background-color: #f0f0f0;}
+h1 {color: red;}
+</pre>
+<strong>Do:</strong> Style your profile page paragraphs with a light background and headings with colors that stand out. <strong>Check:</strong> Open in a browser and experiment with different color combinations for readability.</p>
+</details>
+</section>
+
+<!-- Day 5 -->
+<section>
+<details>
+<summary>Day 5: Fonts & Text Alignment</summary>
+<p><strong>Learn:</strong> CSS controls font-family, size, weight, and alignment. <strong>See:</strong>
+<pre>
+p {font-family: 'Courier New', monospace; font-size:16px; text-align:center;}
+h2 {font-weight:bold; text-align:left;}
+</pre>
+<strong>Do:</strong> Apply different fonts to headings and paragraphs and try center, left, and right alignment. <strong>Check:</strong> Open in a browser to see how font choices and alignment affect readability and page appearance.</p>
+</details>
+</section>
+
+<!-- Day 6 -->
+<section>
+<details>
+<summary>Day 6: Borders, Padding & Margins</summary>
+<p><strong>Learn:</strong> CSS controls spacing and borders with <code>border</code>, <code>padding</code>, and <code>margin</code>. <strong>See:</strong>
+<pre>
+p {border: 1px solid #ccc; padding:10px; margin:15px;}
+</pre>
+<strong>Do:</strong> Add borders around paragraphs, add padding inside, and margins outside. <strong>Check:</strong> Observe how spacing changes in the browser and experiment with different border styles and sizes.</p>
+</details>
+</section>
+
+<!-- Day 7 -->
+<section>
+<details>
+<summary>Day 7: Review & Mini Styled Page</summary>
+<p><strong>Learn:</strong> Combine everything from Week 3 to style your Week 1/2 profile page. Use internal CSS, classes, IDs, colors, fonts, borders, padding, and margins to make your page visually appealing and readable. <strong>Do:</strong> Build a styled profile page and <strong>Check:</strong> Open it in a browser to verify that all styles apply correctly, text is readable, sections are clear, and the layout looks organized. This final exercise consolidates all CSS basics for Week 3.</p>
+</details>
+</section>
+
+</body>
+</html>
