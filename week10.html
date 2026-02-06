@@ -5,33 +5,69 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 10: JS Functions & DOM</title>
 <style>
-body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
-h1,h2,h3{color:#1e90ff;}
-section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
-details {margin-top:10px;margin-bottom:10px;}
-summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
-pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
-code {background:#eee;padding:2px 4px;border-radius:3px;}
-button {padding:5px 10px; margin-top:5px;}
+/* =====================
+   FULL WIDTH & LAYOUT
+   ===================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f5f5f5;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* =====================
+   DISABLE COPYING
+   ===================== */
+* {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+img, a { -webkit-user-drag: none !important; user-drag: none !important; pointer-events: none !important; }
+::selection { background: transparent; }
+::-moz-selection { background: transparent; }
+
+/* =====================
+   CONTENT STYLING
+   ===================== */
+main { width: 100%; padding: 20px; box-sizing: border-box; }
+h1,h2,h3 { color: #1e90ff; }
+section { background: #fff; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+details { margin-top: 10px; margin-bottom: 10px; }
+summary { cursor: pointer; font-weight: bold; padding: 10px; border-radius: 4px; background: #eee; font-size: 1.1em; }
+pre, code { background: #eee; padding: 10px; border-radius: 6px; overflow-x: auto; }
+button { padding: 5px 10px; margin-top: 5px; cursor: pointer; }
+.tip { background: #e8f4ff; padding: 10px; border-left: 4px solid #1e90ff; margin-top: 10px; }
 </style>
 </head>
 <body>
 
+<main>
 <h1>Week 10: JS Functions, Events & DOM</h1>
-<p>This week focuses on **functions, events, and basic DOM manipulation**, giving your page interactivity beyond console logging.</p>
+<p>This week focuses on **functions, events, and DOM manipulation** to make your pages interactive. Each day has explanations, examples, exercises, and tips for hands-on practice.</p>
 
 <!-- Day 1 -->
 <section>
 <details open>
 <summary>Day 1: Functions</summary>
-<p><strong>Learn:</strong> Functions are reusable blocks of code. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Functions are reusable blocks of code that perform tasks. Use them to avoid repeating code.</p>
+<p><strong>See:</strong></p>
 <pre>
 function greet(name) {
   console.log("Hello " + name);
 }
 greet("Elisha");
 </pre>
-<strong>Do:</strong> Create a function to add two numbers and log the result. <strong>Check:</strong> Console shows correct sum.</p>
+<p><strong>Do:</strong> Create a function to add two numbers and log the result.</p>
+<p><strong>Check:</strong> Console shows the correct sum.</p>
+<div class="tip"><strong>Tip:</strong> Functions can be declared first and called later, or stored in variables as arrow functions.</div>
 </details>
 </section>
 
@@ -39,14 +75,17 @@ greet("Elisha");
 <section>
 <details>
 <summary>Day 2: Parameters & Return Values</summary>
-<p><strong>Learn:</strong> Functions can take inputs and return outputs. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Functions can take inputs (parameters) and produce outputs (return values).</p>
+<p><strong>See:</strong></p>
 <pre>
 function square(num) {
   return num * num;
 }
 console.log(square(5)); // 25
 </pre>
-<strong>Do:</strong> Create a function that multiplies two numbers and returns the result. <strong>Check:</strong> Console prints correct value.</p>
+<p><strong>Do:</strong> Create a function that multiplies two numbers and returns the result.</p>
+<p><strong>Check:</strong> Console prints the correct value.</p>
+<div class="tip"><strong>Tip:</strong> Use <code>return</code> to get a value out of a function; without it, the function returns <code>undefined</code>.</div>
 </details>
 </section>
 
@@ -54,7 +93,8 @@ console.log(square(5)); // 25
 <section>
 <details>
 <summary>Day 3: Events – Click</summary>
-<p><strong>Learn:</strong> JS can respond to user actions like clicks. <strong>See:</strong><br>
+<p><strong>Learn:</strong> JavaScript can respond to user actions such as clicks, key presses, or mouse movements.</p>
+<p><strong>See:</strong></p>
 <pre>
 &lt;button onclick="sayHello()"&gt;Click Me&lt;/button&gt;
 &lt;script&gt;
@@ -63,7 +103,9 @@ function sayHello() {
 }
 &lt;/script&gt;
 </pre>
-<strong>Do:</strong> Add a button that shows your name in an alert on click. <strong>Check:</strong> Click the button in browser.</p>
+<p><strong>Do:</strong> Add a button that shows your name in an alert when clicked.</p>
+<p><strong>Check:</strong> Click the button in the browser.</p>
+<div class="tip"><strong>Tip:</strong> Inline <code>onclick</code> works for beginners, but using <code>addEventListener</code> is better practice.</div>
 </details>
 </section>
 
@@ -71,12 +113,15 @@ function sayHello() {
 <section>
 <details>
 <summary>Day 4: DOM Selection</summary>
-<p><strong>Learn:</strong> JS can select HTML elements using <code>getElementById</code>, <code>getElementsByClassName</code>, <code>querySelector</code>. <strong>See:</strong><br>
+<p><strong>Learn:</strong> JS can select HTML elements to manipulate them using <code>getElementById</code>, <code>getElementsByClassName</code>, or <code>querySelector</code>.</p>
+<p><strong>See:</strong></p>
 <pre>
 let header = document.getElementById("header");
 header.style.color = "red";
 </pre>
-<strong>Do:</strong> Give a heading an ID and change its color using JS. <strong>Check:</strong> Open browser to verify color changes.</p>
+<p><strong>Do:</strong> Give a heading an ID and change its color using JS.</p>
+<p><strong>Check:</strong> Browser shows updated heading color.</p>
+<div class="tip"><strong>Tip:</strong> Use descriptive IDs for easier selection.</div>
 </details>
 </section>
 
@@ -84,12 +129,15 @@ header.style.color = "red";
 <section>
 <details>
 <summary>Day 5: DOM Content Change</summary>
-<p><strong>Learn:</strong> JS can change content with <code>innerText</code> or <code>innerHTML</code>. <strong>See:</strong><br>
+<p><strong>Learn:</strong> JS can change content dynamically with <code>innerText</code> or <code>innerHTML</code>.</p>
+<p><strong>See:</strong></p>
 <pre>
 let msg = document.getElementById("msg");
 msg.innerText = "Welcome!";
 </pre>
-<strong>Do:</strong> Create a paragraph with an ID and change its text on button click. <strong>Check:</strong> Browser updates text correctly.</p>
+<p><strong>Do:</strong> Create a paragraph with an ID and a button that changes its text on click.</p>
+<p><strong>Check:</strong> Browser updates the text correctly.</p>
+<div class="tip"><strong>Tip:</strong> <code>innerHTML</code> allows HTML formatting inside elements.</div>
 </details>
 </section>
 
@@ -97,7 +145,8 @@ msg.innerText = "Welcome!";
 <section>
 <details>
 <summary>Day 6: Combining Events & DOM</summary>
-<p><strong>Learn:</strong> Combine click events with DOM updates. <strong>See:</strong><br>
+<p><strong>Learn:</strong> You can combine click events with DOM updates to create interactive features.</p>
+<p><strong>See:</strong></p>
 <pre>
 &lt;button onclick="changeText()"&gt;Click&lt;/button&gt;
 &lt;p id="demo"&gt;Old Text&lt;/p&gt;
@@ -108,7 +157,9 @@ function changeText() {
 }
 &lt;/script&gt;
 </pre>
-<strong>Do:</strong> Make a button change the text of a paragraph. <strong>Check:</strong> Verify behavior in browser.</p>
+<p><strong>Do:</strong> Make a button change the text of a paragraph.</p>
+<p><strong>Check:</strong> Verify behavior in browser.</p>
+<div class="tip"><strong>Tip:</strong> You can update multiple elements at once inside a function for more complex interactions.</div>
 </details>
 </section>
 
@@ -116,9 +167,31 @@ function changeText() {
 <section>
 <details>
 <summary>Day 7: Review & Mini Interactive Page</summary>
-<p><strong>Learn:</strong> Combine functions, events, and DOM manipulation for interactivity. <strong>Do:</strong> Create a small interactive profile card with a button that updates a message or favorite hobby when clicked. <strong>Check:</strong> Open browser and test button behavior. This completes Week 10.</p>
+<p><strong>Learn:</strong> Combine functions, events, and DOM manipulation for full interactivity.</p>
+<p><strong>Do:</strong> Create a small profile card with a button that updates a message, like favorite hobby or greeting.</p>
+<p><strong>Check:</strong> Open browser and test button behavior. Experiment with adding colors or multiple paragraphs updating dynamically. This completes Week 10.</p>
+<div class="tip"><strong>Tip:</strong> Practice small projects daily; DOM interactions are the foundation of web interactivity.</div>
 </details>
 </section>
+
+</main>
+
+<script>
+// Disable right-click
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Disable copy, cut, paste, select, drag
+['copy','cut','paste','selectstart','dragstart'].forEach(event => {
+  document.addEventListener(event, e => e.preventDefault());
+});
+
+// Disable keyboard shortcuts (Ctrl/Cmd + C/X/V/A/S/U/P)
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && ['c','x','v','a','s','u','p'].includes(e.key.toLowerCase())) {
+    e.preventDefault();
+  }
+});
+</script>
 
 </body>
 </html>
