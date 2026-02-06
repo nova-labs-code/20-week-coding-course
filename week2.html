@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 2: HTML Intermediate</title>
+<style>
+body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
+h1,h2,h3{color:#1e90ff;}
+section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
+details {margin-top:10px;margin-bottom:10px;}
+summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
+pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
+code {background:#eee;padding:2px 4px;border-radius:3px;}
+</style>
+</head>
+<body>
+
+<h1>Week 2: HTML Intermediate</h1>
+<p>Welcome to Week 2! This week we will move beyond basic HTML and focus on **semantic structure, grouping elements, colors, lists with links/images, tables, and basic forms**. Each day uses the “Learn → See → Do → Check” method and should take about 30 minutes.</p>
+
+<!-- Day 1 -->
+<section>
+<details open>
+<summary>Day 1: Semantic HTML & Sections</summary>
+<p><strong>Learn:</strong> Semantic HTML uses tags that give meaning to your content, like <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;article&gt;</code>, which help browsers, search engines, and screen readers understand your page. <strong>See:</strong><br>
+<pre>&lt;header&gt;&lt;h1&gt;My Website&lt;/h1&gt;&lt;/header&gt;
+&lt;main&gt;
+  &lt;section&gt;&lt;h2&gt;About Me&lt;/h2&gt;&lt;p&gt;Content here.&lt;/p&gt;&lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;&lt;p&gt;Copyright 2026&lt;/p&gt;&lt;/footer&gt;
+</pre>
+<strong>Do:</strong> Reorganize your Week 1 profile using <code>&lt;header&gt;</code> for your name, <code>&lt;main&gt;</code> for content, and <code>&lt;section&gt;</code> for About Me and Hobbies. <strong>Check:</strong> Open it in a browser to verify structure and readability.</p>
+</details>
+</section>
+
+<!-- Day 2 -->
+<section>
+<details>
+<summary>Day 2: Divs & Spans</summary>
+<p><strong>Learn:</strong> <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> are non-semantic containers used to group content for styling or scripting; <code>&lt;div&gt;</code> is block-level while <code>&lt;span&gt;</code> is inline. <strong>See:</strong><br>
+<pre>&lt;div class="bio"&gt;&lt;p&gt;This is a paragraph&lt;/p&gt;&lt;/div&gt;
+&lt;p&gt;I like &lt;span style="color:red;"&gt;coding&lt;/span&gt;!&lt;/p&gt;
+</pre>
+<strong>Do:</strong> Wrap your paragraphs in <code>&lt;div&gt;</code> tags and highlight a word with <code>&lt;span&gt;</code> in a different color. <strong>Check:</strong> Open in a browser to see grouping and inline styles applied correctly.</p>
+</details>
+</section>
+
+<!-- Day 3 -->
+<section>
+<details>
+<summary>Day 3: Colors & Backgrounds</summary>
+<p><strong>Learn:</strong> Inline styles can change text color and backgrounds with <code>style</code> attributes, e.g., <code>&lt;p style="color:blue;"&gt;Blue text&lt;/p&gt;</code> or <code>&lt;div style="background-color:#f0f0f0;"&gt;Section&lt;/div&gt;</code>. <strong>Do:</strong> Change text colors, section backgrounds, and highlight important areas of your profile page. <strong>Check:</strong> Open the page in a browser and see how colors affect readability and visual appeal.</p>
+</details>
+</section>
+
+<!-- Day 4 -->
+<section>
+<details>
+<summary>Day 4: Lists with Links & Images</summary>
+<p><strong>Learn:</strong> Lists can include links and images, e.g., <code>&lt;ul&gt;&lt;li&gt;&lt;a href="https://example.com"&gt;My Site&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;img src="icon.png" alt="Icon"&gt;&lt;/li&gt;&lt;/ul&gt;</code>. <strong>Do:</strong> Update your hobbies list to add a small image or icon for each hobby and make one item link to an external site. <strong>Check:</strong> Open in a browser to verify images and links display correctly within the list.</p>
+</details>
+</section>
+
+<!-- Day 5 -->
+<section>
+<details>
+<summary>Day 5: Tables</summary>
+<p><strong>Learn:</strong> Tables organize data using <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code> for rows, <code>&lt;th&gt;</code> for headers, and <code>&lt;td&gt;</code> for cells. Example:<br>
+<pre>&lt;table&gt;
+  &lt;tr&gt;&lt;th&gt;Day&lt;/th&gt;&lt;th&gt;Task&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Monday&lt;/td&gt;&lt;td&gt;Code&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+<strong>Do:</strong> Create a table of your weekly routine with at least three rows. <strong>Check:</strong> Open the page and confirm the table displays correctly with proper alignment and readable text.</p>
+</details>
+</section>
+
+<!-- Day 6 -->
+<section>
+<details>
+<summary>Day 6: Forms (Basic Inputs)</summary>
+<p><strong>Learn:</strong> Forms collect input using <code>&lt;form&gt;</code> with <code>&lt;input&gt;</code> and <code>&lt;textarea&gt;</code>. Example:<br>
+<pre>&lt;form&gt;
+  &lt;label&gt;Name:&lt;/label&gt;&lt;input type="text" placeholder="Your Name"&gt;
+  &lt;label&gt;Message:&lt;/label&gt;&lt;textarea placeholder="Type here"&gt;&lt;/textarea&gt;
+  &lt;input type="submit"&gt;
+&lt;/form&gt;
+</pre>
+<strong>Do:</strong> Add a contact form with Name, Email, and Message fields plus a submit button. <strong>Check:</strong> Open in a browser to ensure you can type in fields and click submit (functionality is optional at this stage).</p>
+</details>
+</section>
+
+<!-- Day 7 -->
+<section>
+<details>
+<summary>Day 7: Review & Mini Intermediate Page</summary>
+<p><strong>Learn:</strong> Combine all skills from Week 2 to enhance your Week 1 profile page. Use <code>&lt;header&gt;</code> and <code>&lt;main&gt;</code> for structure, wrap sections in <code>&lt;div&gt;</code>, style with colors, enhance lists with links/images, add a table of your routine, and include a simple contact form. <strong>Do:</strong> Build your enhanced page and <strong>Check:</strong> verify all elements display correctly, the layout is logical, colors are readable, links work, images show, the table aligns, and the form inputs are interactive. This final exercise consolidates all intermediate HTML skills for Week 2.</p>
+</details>
+</section>
+
+</body>
+</html>
