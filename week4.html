@@ -5,30 +5,114 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 4: CSS Layouts</title>
 <style>
-body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
-h1,h2,h3{color:#1e90ff;}
-section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
-details {margin-top:10px;margin-bottom:10px;}
-summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
-pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
-code {background:#eee;padding:2px 4px;border-radius:3px;}
+/* =====================
+   FULL WIDTH LAYOUT
+   ===================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f5f5f5;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* =====================
+   DISABLE COPYING
+   ===================== */
+* {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+img, a {
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+  pointer-events: none !important;
+}
+
+::selection { background: transparent; }
+::-moz-selection { background: transparent; }
+
+/* =====================
+   CONTENT STYLING
+   ===================== */
+main {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h1, h2, h3 { color: #1e90ff; }
+
+section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+details {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 4px;
+  background: #eee;
+  font-size: 1.1em;
+}
+
+pre, code {
+  background: #eee;
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.tip {
+  background: #e8f4ff;
+  padding: 10px;
+  border-left: 4px solid #1e90ff;
+  margin-top: 10px;
+}
 </style>
 </head>
 <body>
 
+<main>
 <h1>Week 4: CSS Layouts</h1>
-<p>Welcome to Week 4! This week focuses on **layout techniques** to control how elements appear on your page, using display properties, Flexbox, and positioning. Each day is structured using “Learn → See → Do → Check” for ~30 minutes of hands-on practice.</p>
+<p>Welcome to Week 4! This week we focus on **layout techniques** to control how elements appear on your page. You will learn **block vs inline, display property, Flexbox basics, alignment, positioning, and spacing**. Lessons follow “Learn → See → Do → Check” and now include more examples, exercises, and tips for each day.</p>
 
 <!-- Day 1 -->
 <section>
 <details open>
 <summary>Day 1: Block vs Inline Elements</summary>
-<p><strong>Learn:</strong> HTML elements have default display types: block elements like <code>&lt;div&gt;</code> and <code>&lt;p&gt;</code> take up full width, while inline elements like <code>&lt;span&gt;</code> or <code>&lt;a&gt;</code> only take the width of their content. <strong>See:</strong><br>
+<p><strong>Learn:</strong> HTML elements have default display types. Block elements like <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code> occupy the full width and start on a new line. Inline elements like <code>&lt;span&gt;</code> or <code>&lt;a&gt;</code> occupy only the width of their content and do not force line breaks.</p>
+<p><strong>See:</strong></p>
 <pre>
 &lt;div&gt;I am a block&lt;/div&gt;
 &lt;span&gt;I am inline&lt;/span&gt;&lt;span&gt;Me too&lt;/span&gt;
 </pre>
-<strong>Do:</strong> Create a page showing a block element followed by multiple inline elements and observe how they behave. <strong>Check:</strong> Open in a browser to see the difference in width and stacking behavior.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Create a block element (div) and several inline elements (span, a) in your page.</li>
+<li>Experiment with nesting inline elements inside block elements.</li>
+<li>Try adding background colors or borders to see how each element behaves.</li>
+</ul>
+<p><strong>Check:</strong> Open in a browser and notice how block elements stack vertically while inline elements sit next to each other.</p>
+<div class="tip"><strong>Tip:</strong> Understanding block vs inline is the foundation for more advanced layout techniques like Flexbox and Grid.</div>
 </details>
 </section>
 
@@ -36,12 +120,20 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 2: Display Property</summary>
-<p><strong>Learn:</strong> CSS <code>display</code> property can change how elements behave: <code>block</code>, <code>inline</code>, <code>inline-block</code>, or <code>none</code> to hide elements. <strong>See:</strong><br>
+<p><strong>Learn:</strong> The CSS <code>display</code> property lets you override default element behavior. Key values include <code>block</code>, <code>inline</code>, <code>inline-block</code>, <code>flex</code>, <code>grid</code>, and <code>none</code>.</p>
+<p><strong>See:</strong></p>
 <pre>
-p {display: inline-block; background: #ddd;}
-div {display: none;}
+p { display: inline-block; background: #ddd; padding:5px; }
+div { display: none; }
 </pre>
-<strong>Do:</strong> Apply <code>display:inline-block</code> to paragraphs and try hiding a div with <code>display:none</code>. <strong>Check:</strong> Observe in the browser how layout changes and hidden elements disappear.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Set a paragraph to <code>inline-block</code> and notice that it behaves like a block element but remains inline.</li>
+<li>Hide a div using <code>display:none</code> and then revert it to <code>block</code>.</li>
+<li>Try different display values like <code>flex</code> or <code>grid</code> on a container to see their effects.</li>
+</ul>
+<p><strong>Check:</strong> Observe in the browser how elements appear, disappear, and align differently based on display settings.</p>
+<div class="tip"><strong>Tip:</strong> Use <code>display:none</code> carefully; the element is completely removed from layout and not just hidden.</div>
 </details>
 </section>
 
@@ -49,19 +141,31 @@ div {display: none;}
 <section>
 <details>
 <summary>Day 3: Introduction to Flexbox</summary>
-<p><strong>Learn:</strong> Flexbox is a CSS layout module for aligning and distributing space among items in a container. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Flexbox is a layout model that distributes space along a container. It is perfect for one-dimensional layouts, horizontal or vertical, with precise alignment and spacing control.</p>
+<p><strong>See:</strong></p>
 <pre>
 &lt;div class="flex-container"&gt;
   &lt;div&gt;Box 1&lt;/div&gt;
   &lt;div&gt;Box 2&lt;/div&gt;
+  &lt;div&gt;Box 3&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.flex-container {display: flex; gap:10px;}
-.flex-container div {background:#ddd; padding:20px;}
+.flex-container {
+  display: flex;
+  gap: 10px;
+  background: #f0f0f0;
+  padding: 10px;
+}
+.flex-container div {
+  background: #ddd;
+  padding: 20px;
+}
 &lt;/style&gt;
 </pre>
-<strong>Do:</strong> Create a flex container with three boxes and experiment with spacing using <code>gap</code>. <strong>Check:</strong> Open in the browser to see boxes aligned horizontally and spaced evenly.</p>
+<p><strong>Do:</strong> Create a flex container with 3-4 boxes. Adjust the <code>gap</code> between them and experiment with box widths.</p>
+<p><strong>Check:</strong> Open in a browser. Boxes should line up horizontally with spacing controlled by <code>gap</code>.</p>
+<div class="tip"><strong>Tip:</strong> Flexbox simplifies horizontal and vertical alignment without floats or complicated margins.</div>
 </details>
 </section>
 
@@ -69,11 +173,24 @@ div {display: none;}
 <section>
 <details>
 <summary>Day 4: Flex Direction & Justify Content</summary>
-<p><strong>Learn:</strong> Flexbox allows control of direction and alignment. Use <code>flex-direction: row | column</code> and <code>justify-content: flex-start | center | space-between</code>. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Flexbox allows controlling direction with <code>flex-direction</code> (<code>row</code> | <code>column</code>) and horizontal alignment with <code>justify-content</code> (<code>flex-start</code>, <code>center</code>, <code>space-between</code>, <code>space-around</code>).</p>
+<p><strong>See:</strong></p>
 <pre>
-.flex-container {display: flex; flex-direction: column; justify-content: center;}
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 200px;
+}
 </pre>
-<strong>Do:</strong> Change your flex container to column direction and experiment with justify-content options. <strong>Check:</strong> Verify in the browser how boxes stack vertically or align in different ways.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Change flex-direction between <code>row</code> and <code>column</code>.</li>
+<li>Experiment with justify-content: center, flex-start, space-between, and space-around.</li>
+<li>Add background color to container to visualize alignment.</li>
+</ul>
+<p><strong>Check:</strong> Open in a browser. Boxes should stack vertically or horizontally and align according to your settings.</p>
+<div class="tip"><strong>Tip:</strong> Use container height to clearly see vertical alignment effects.</div>
 </details>
 </section>
 
@@ -81,12 +198,20 @@ div {display: none;}
 <section>
 <details>
 <summary>Day 5: Align Items & Align Self</summary>
-<p><strong>Learn:</strong> Flexbox also aligns items vertically using <code>align-items</code> for all children and <code>align-self</code> for individual elements. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Flexbox aligns items vertically using <code>align-items</code> for all children and <code>align-self</code> for individual elements.</p>
+<p><strong>See:</strong></p>
 <pre>
-.flex-container {align-items: center;}
-.flex-container div:nth-child(2) {align-self: flex-end;}
+.flex-container { align-items: center; height: 200px; }
+.flex-container div:nth-child(2) { align-self: flex-end; }
 </pre>
-<strong>Do:</strong> Align all boxes in the center and change the second box to align differently. <strong>Check:</strong> Observe how the vertical alignment of elements changes in the browser.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Center all boxes vertically with <code>align-items</code>.</li>
+<li>Change one box’s alignment using <code>align-self</code>.</li>
+<li>Combine with justify-content to see full layout control.</li>
+</ul>
+<p><strong>Check:</strong> Observe vertical positioning in the browser.</p>
+<div class="tip"><strong>Tip:</strong> Align-self overrides align-items for individual boxes.</div>
 </details>
 </section>
 
@@ -94,12 +219,21 @@ div {display: none;}
 <section>
 <details>
 <summary>Day 6: Position Property</summary>
-<p><strong>Learn:</strong> CSS <code>position</code> controls element placement: <code>static</code>, <code>relative</code>, <code>absolute</code>, <code>fixed</code>, and <code>sticky</code>. <strong>See:</strong><br>
+<p><strong>Learn:</strong> CSS <code>position</code> lets you place elements precisely: <code>static</code> (default), <code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code>.</p>
+<p><strong>See:</strong></p>
 <pre>
-div.relative {position: relative; top: 10px; left: 20px;}
-div.absolute {position: absolute; top: 50px; left: 50px;}
+div.relative { position: relative; top: 10px; left: 20px; }
+div.absolute { position: absolute; top: 50px; left: 50px; }
+div.fixed { position: fixed; bottom: 0; right: 0; }
 </pre>
-<strong>Do:</strong> Make one div relative and another absolute and move them around the page. <strong>Check:</strong> Open in the browser to see how position affects element placement.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Create one relative, one absolute, and one fixed div.</li>
+<li>Move them around using top, left, right, bottom.</li>
+<li>Observe how absolute positioning depends on nearest positioned ancestor.</li>
+</ul>
+<p><strong>Check:</strong> Open in a browser and experiment with combinations.</p>
+<div class="tip"><strong>Tip:</strong> Use fixed position for headers, footers, or sticky buttons that remain visible on scroll.</div>
 </details>
 </section>
 
@@ -107,9 +241,40 @@ div.absolute {position: absolute; top: 50px; left: 50px;}
 <section>
 <details>
 <summary>Day 7: Review & Mini Layout Page</summary>
-<p><strong>Learn:</strong> Combine all CSS layout skills to structure your profile page professionally: block vs inline elements, display adjustments, Flexbox containers with direction, justify-content, align-items, and basic positioning. <strong>Do:</strong> Recreate your profile page layout using Flexbox for your sections, align boxes properly, and experiment with positioning. <strong>Check:</strong> Open in a browser to ensure the layout is clean, elements are aligned, and the page looks organized. This completes Week 4 CSS layout fundamentals.</p>
+<p><strong>Learn:</strong> Combine all layout skills learned this week to structure a professional profile page. Apply block/inline understanding, display, Flexbox, alignment, and positioning. <strong>Do:</strong></p>
+<ul>
+<li>Create a main container for your profile sections.</li>
+<li>Use Flexbox to layout your profile picture, bio, and hobbies horizontally.</li>
+<li>Align items vertically and horizontally for visual balance.</li>
+<li>Add positioning for a fixed footer or floating button.</li>
+<li>Experiment with spacing, padding, and margins to avoid overlapping.</li>
+</ul>
+<p><strong>Check:</strong> Open the page in a browser and ensure layout is clean, sections are aligned, and the page looks organized. Test responsiveness by resizing the window.</p>
+<div class="tip"><strong>Tip:</strong> Combining display, Flexbox, and positioning gives powerful control over your page layout without using floats.</div>
 </details>
 </section>
+
+</main>
+
+<!-- =====================
+     DISABLE COPY & SHORTCUTS
+     ===================== -->
+<script>
+// Disable right-click
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Disable copy, cut, paste, select, drag
+['copy','cut','paste','selectstart','dragstart'].forEach(event => {
+  document.addEventListener(event, e => e.preventDefault());
+});
+
+// Disable keyboard shortcuts (Ctrl/Cmd + C/X/V/A/S/U/P)
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && ['c','x','v','a','s','u','p'].includes(e.key.toLowerCase())) {
+    e.preventDefault();
+  }
+});
+</script>
 
 </body>
 </html>
