@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 6: CSS Advanced</title>
+<style>
+body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
+h1,h2,h3{color:#1e90ff;}
+section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
+details {margin-top:10px;margin-bottom:10px;}
+summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
+pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
+code {background:#eee;padding:2px 4px;border-radius:3px;}
+</style>
+</head>
+<body>
+
+<h1>Week 6: CSS Advanced – Layout & Transitions</h1>
+<p>This week we explore **CSS transitions, animations, layering, z-index, and hover transformations** to make pages interactive and smooth. One long paragraph per day, ~30 minutes each.</p>
+
+<!-- Day 1 -->
+<section>
+<details open>
+<summary>Day 1: CSS Transitions</summary>
+<p><strong>Learn:</strong> Transitions allow smooth changes of properties. Example: <code>transition: all 0.3s ease;</code> animates any change. <strong>See:</strong><br>
+<pre>
+div.box {background: #ddd; padding:20px; transition: all 0.3s ease;}
+div.box:hover {background:#aaa;}
+</pre>
+<strong>Do:</strong> Add a hover transition to a section or card on your page. <strong>Check:</strong> Observe smooth color change when hovering.</p>
+</details>
+</section>
+
+<!-- Day 2 -->
+<section>
+<details>
+<summary>Day 2: Transform & Scale</summary>
+<p><strong>Learn:</strong> Use <code>transform</code> to rotate, scale, or move elements. Example: <code>transform: scale(1.1);</code> enlarges element. <strong>Do:</strong> Apply scale on hover to a card or button. <strong>Check:</strong> Open browser and hover to see interactive growth.</p>
+</details>
+</section>
+
+<!-- Day 3 -->
+<section>
+<details>
+<summary>Day 3: Z-index & Layering</summary>
+<p><strong>Learn:</strong> <code>z-index</code> controls stacking order for positioned elements. Example: <code>position: relative; z-index: 2;</code>. <strong>Do:</strong> Overlap two divs and assign different z-index values to see which appears on top. <strong>Check:</strong> Browser shows correct layering.</p>
+</details>
+</section>
+
+<!-- Day 4 -->
+<section>
+<details>
+<summary>Day 4: Opacity & Visibility</summary>
+<p><strong>Learn:</strong> CSS can control transparency with <code>opacity</code> or <code>visibility</code>. Example: <code>opacity: 0.5;</code> makes element semi-transparent. <strong>Do:</strong> Apply opacity to an image or div. <strong>Check:</strong> Browser shows transparency effect.</p>
+</details>
+</section>
+
+<!-- Day 5 -->
+<section>
+<details>
+<summary>Day 5: Hover Transitions Combined</summary>
+<p><strong>Learn:</strong> Combine transformations, color changes, and opacity with transitions for smooth hover effects. <strong>See:</strong><br>
+<pre>
+div.card {
+  transition: all 0.4s ease;
+}
+div.card:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+  background-color: #cce7ff;
+}
+</pre>
+<strong>Do:</strong> Apply combined hover transitions to a section. <strong>Check:</strong> Observe smooth visual changes in the browser.</p>
+</details>
+</section>
+
+<!-- Day 6 -->
+<section>
+<details>
+<summary>Day 6: Border & Shadow Animations</summary>
+<p><strong>Learn:</strong> You can animate borders and shadows. Example: <code>box-shadow</code> changes with transition. <strong>Do:</strong> Add animated shadows and border color changes on hover for a card. <strong>Check:</strong> Browser shows interactive changes on hover.</p>
+</details>
+</section>
+
+<!-- Day 7 -->
+<section>
+<details>
+<summary>Day 7: Review & Interactive Page</summary>
+<p><strong>Learn:</strong> Combine all transitions, transformations, z-index, opacity, and shadows for a fully interactive page. <strong>Do:</strong> Enhance your profile page cards or sections with hover effects and smooth transitions. <strong>Check:</strong> Open in browser to see everything work together seamlessly. This completes Week 6.</p>
+</details>
+</section>
+
+</body>
+</html>
