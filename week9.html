@@ -5,29 +5,65 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 9: JavaScript Basics</title>
 <style>
-body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
-h1,h2,h3{color:#1e90ff;}
-section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
-details {margin-top:10px;margin-bottom:10px;}
-summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
-pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
-code {background:#eee;padding:2px 4px;border-radius:3px;}
+/* =====================
+   FULL WIDTH & LAYOUT
+   ===================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f5f5f5;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* =====================
+   DISABLE COPYING
+   ===================== */
+* {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+img, a { -webkit-user-drag: none !important; user-drag: none !important; pointer-events: none !important; }
+::selection { background: transparent; }
+::-moz-selection { background: transparent; }
+
+/* =====================
+   CONTENT STYLING
+   ===================== */
+main { width: 100%; padding: 20px; box-sizing: border-box; }
+h1,h2,h3 { color: #1e90ff; }
+section { background: #fff; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+details { margin-top: 10px; margin-bottom: 10px; }
+summary { cursor: pointer; font-weight: bold; padding: 10px; border-radius: 4px; background: #eee; font-size: 1.1em; }
+pre, code { background: #eee; padding: 10px; border-radius: 6px; overflow-x: auto; }
+.tip { background: #e8f4ff; padding: 10px; border-left: 4px solid #1e90ff; margin-top: 10px; }
 </style>
 </head>
 <body>
 
-<h1>Week 9: JavaScript Basics – Variables & Console</h1>
-<p>This week introduces **JavaScript fundamentals** to add interactivity. Each day is ~30 minutes with examples to try in the browser console or in script tags.</p>
+<main>
+<h1>Week 9: JavaScript Basics – Variables, Data & Console</h1>
+<p>This week introduces **JavaScript fundamentals** to make your pages interactive. Each day has detailed explanations, code examples, exercises, and tips to practice using the browser console or <code>&lt;script&gt;</code> tags in your HTML.</p>
 
 <!-- Day 1 -->
 <section>
 <details open>
 <summary>Day 1: Introduction to JavaScript & Console</summary>
-<p><strong>Learn:</strong> JavaScript adds dynamic behavior to web pages. Use <code>console.log()</code> to print messages for debugging. <strong>See:</strong><br>
+<p><strong>Learn:</strong> JavaScript is a programming language for dynamic web behavior. You can test your code instantly using <code>console.log()</code>, which prints messages in the console for debugging and checking values.</p>
+<p><strong>See:</strong></p>
 <pre>
 console.log("Hello, world!");
 </pre>
-<strong>Do:</strong> Open your browser console and type <code>console.log("My name is [Your Name]")</code>. <strong>Check:</strong> Verify the message appears in the console.</p>
+<p><strong>Do:</strong> Open your browser console (F12 or right-click → Inspect → Console) and type: <code>console.log("My name is [Your Name]")</code>. Press Enter.</p>
+<p><strong>Check:</strong> The console should display your message.</p>
+<div class="tip"><strong>Tip:</strong> Use console.log frequently while coding to check variables and outputs.</div>
 </details>
 </section>
 
@@ -35,14 +71,17 @@ console.log("Hello, world!");
 <section>
 <details>
 <summary>Day 2: Variables (let, const, var)</summary>
-<p><strong>Learn:</strong> Variables store data. Use <code>let</code> for changeable values, <code>const</code> for constants, <code>var</code> (older). <strong>See:</strong><br>
+<p><strong>Learn:</strong> Variables store values. <code>let</code> is for changeable variables, <code>const</code> for constants, and <code>var</code> is older but still works. JavaScript is case-sensitive and variable names cannot start with numbers.</p>
+<p><strong>See:</strong></p>
 <pre>
 let age = 15;
 const name = "Elisha";
 var hobby = "coding";
 console.log(name, age, hobby);
 </pre>
-<strong>Do:</strong> Create 3 variables for your favorite color, food, and game. <strong>Check:</strong> Log them to the console to confirm.</p>
+<p><strong>Do:</strong> Create 3 variables for your favorite color, food, and game, then log them.</p>
+<p><strong>Check:</strong> Browser console shows your variable values correctly.</p>
+<div class="tip"><strong>Tip:</strong> Use <code>const</code> whenever you don’t plan to change a value. It prevents accidental reassignments.</div>
 </details>
 </section>
 
@@ -50,14 +89,17 @@ console.log(name, age, hobby);
 <section>
 <details>
 <summary>Day 3: Data Types & typeof</summary>
-<p><strong>Learn:</strong> JS data types include <code>string</code>, <code>number</code>, <code>boolean</code>, <code>object</code>, <code>undefined</code>. Use <code>typeof</code> to check type. <strong>See:</strong><br>
+<p><strong>Learn:</strong> JavaScript has different data types: <code>string</code>, <code>number</code>, <code>boolean</code>, <code>object</code>, <code>undefined</code>, and <code>null</code>. Use <code>typeof</code> to check the type of a variable.</p>
+<p><strong>See:</strong></p>
 <pre>
 let score = 100;
 let isOnline = true;
 console.log(typeof score);  // number
 console.log(typeof isOnline); // boolean
 </pre>
-<strong>Do:</strong> Create 2 variables of different types and log their types. <strong>Check:</strong> Verify results in the console.</p>
+<p><strong>Do:</strong> Create 2 variables of different types, then log their types with <code>typeof</code>.</p>
+<p><strong>Check:</strong> Console shows the correct data types.</p>
+<div class="tip"><strong>Tip:</strong> Always check types before performing operations to avoid errors.</div>
 </details>
 </section>
 
@@ -65,14 +107,17 @@ console.log(typeof isOnline); // boolean
 <section>
 <details>
 <summary>Day 4: Basic Arithmetic</summary>
-<p><strong>Learn:</strong> JS supports arithmetic: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>. <strong>See:</strong><br>
+<p><strong>Learn:</strong> JavaScript supports arithmetic operations: addition (+), subtraction (-), multiplication (*), division (/), modulus (%). You can perform calculations directly or store results in variables.</p>
+<p><strong>See:</strong></p>
 <pre>
 let x = 10;
 let y = 3;
 console.log(x + y); // 13
 console.log(x % y); // 1
 </pre>
-<strong>Do:</strong> Calculate your age next year, or the remainder when dividing two numbers. <strong>Check:</strong> Verify results in console.</p>
+<p><strong>Do:</strong> Calculate your age next year or the remainder when dividing two numbers.</p>
+<p><strong>Check:</strong> Verify results in the console.</p>
+<div class="tip"><strong>Tip:</strong> The modulus (%) operator is useful for checking even/odd numbers or cycles.</div>
 </details>
 </section>
 
@@ -80,14 +125,17 @@ console.log(x % y); // 1
 <section>
 <details>
 <summary>Day 5: Strings & Concatenation</summary>
-<p><strong>Learn:</strong> Strings can be combined with <code>+</code> or template literals <code>`Hello ${name}`</code>. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Strings are text values. Combine them using the + operator or template literals (backticks ``) for easier formatting.</p>
+<p><strong>See:</strong></p>
 <pre>
 let firstName = "Elisha";
 let lastName = "Samson";
 console.log("Hello " + firstName + " " + lastName);
 console.log(`Hello ${firstName} ${lastName}`);
 </pre>
-<strong>Do:</strong> Create a greeting message with your name using both methods. <strong>Check:</strong> Console shows the correct greeting.</p>
+<p><strong>Do:</strong> Create a greeting message using both concatenation and template literals.</p>
+<p><strong>Check:</strong> Console shows correct greetings with your name.</p>
+<div class="tip"><strong>Tip:</strong> Template literals also support multi-line strings for easier formatting.</div>
 </details>
 </section>
 
@@ -95,12 +143,15 @@ console.log(`Hello ${firstName} ${lastName}`);
 <section>
 <details>
 <summary>Day 6: User Interaction with prompt</summary>
-<p><strong>Learn:</strong> Prompt collects user input. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Use <code>prompt()</code> to ask the user for input. Returned value is a string, so convert with <code>Number()</code> if needed.</p>
+<p><strong>See:</strong></p>
 <pre>
 let age = prompt("Enter your age:");
 console.log("You are " + age + " years old.");
 </pre>
-<strong>Do:</strong> Prompt for your favorite hobby and display it in console. <strong>Check:</strong> Enter values to verify prompt works.</p>
+<p><strong>Do:</strong> Prompt for your favorite hobby and log it to the console.</p>
+<p><strong>Check:</strong> Enter a value and verify the console displays it.</p>
+<div class="tip"><strong>Tip:</strong> Use <code>alert()</code> or <code>console.log()</code> to show outputs to users during testing.</div>
 </details>
 </section>
 
@@ -108,9 +159,37 @@ console.log("You are " + age + " years old.");
 <section>
 <details>
 <summary>Day 7: Review & Mini JS Console Exercise</summary>
-<p><strong>Learn:</strong> Combine variables, types, arithmetic, strings, and prompt to create small console interactions. <strong>Do:</strong> Write a program asking for name and age, then log a message like "Hello [Name], next year you will be [age+1]". <strong>Check:</strong> Open console to see if program works correctly. This completes Week 9.</p>
+<p><strong>Learn:</strong> Combine variables, types, arithmetic, strings, and prompt to create small interactive console programs.</p>
+<p><strong>Do:</strong> Write a program that:</p>
+<ol>
+<li>Asks for the user's name and age using <code>prompt()</code>.</li>
+<li>Calculates next year’s age.</li>
+<li>Logs a greeting message like: "Hello [Name], next year you will be [age+1]."</li>
+<li>Try adding your favorite hobby to the message for extra practice.</li>
+</ol>
+<p><strong>Check:</strong> Open console to ensure your program works correctly. Test with different inputs to see dynamic results.</p>
+<div class="tip"><strong>Tip:</strong> Practice small scripts daily. The console is your playground for testing JavaScript logic safely.</div>
 </details>
 </section>
+
+</main>
+
+<script>
+// Disable right-click
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Disable copy, cut, paste, select, drag
+['copy','cut','paste','selectstart','dragstart'].forEach(event => {
+  document.addEventListener(event, e => e.preventDefault());
+});
+
+// Disable keyboard shortcuts (Ctrl/Cmd + C/X/V/A/S/U/P)
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && ['c','x','v','a','s','u','p'].includes(e.key.toLowerCase())) {
+    e.preventDefault();
+  }
+});
+</script>
 
 </body>
 </html>
