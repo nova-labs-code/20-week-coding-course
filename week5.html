@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 5: CSS Styling & Effects</title>
+<style>
+body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
+h1,h2,h3{color:#1e90ff;}
+section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
+details {margin-top:10px;margin-bottom:10px;}
+summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
+pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
+code {background:#eee;padding:2px 4px;border-radius:3px;}
+</style>
+</head>
+<body>
+
+<h1>Week 5: CSS Styling & Effects</h1>
+<p>This week we focus on **advanced CSS styling** to make your pages visually appealing with shadows, borders, rounded corners, and gradients. Follow “Learn → See → Do → Check” to practice daily.</p>
+
+<!-- Day 1 -->
+<section>
+<details open>
+<summary>Day 1: Rounded Corners & Borders</summary>
+<p><strong>Learn:</strong> CSS allows you to style elements with <code>border-radius</code> for rounded corners and customize borders with width, style, and color. <strong>See:</strong><br>
+<pre>
+div {border: 2px solid #333; border-radius: 10px; padding: 10px;}
+</pre>
+<strong>Do:</strong> Add a rounded border to one of your sections or boxes on your profile page. <strong>Check:</strong> Open the browser to ensure corners are rounded and borders display correctly.</p>
+</details>
+</section>
+
+<!-- Day 2 -->
+<section>
+<details>
+<summary>Day 2: Box Shadows</summary>
+<p><strong>Learn:</strong> Shadows create depth using <code>box-shadow</code>, e.g., <code>box-shadow: 5px 5px 10px rgba(0,0,0,0.3);</code>. <strong>Do:</strong> Add a shadow to your header or cards to make them pop. <strong>Check:</strong> Open in a browser to see the shadow effect and adjust offsets and blur to experiment with the appearance.</p>
+</details>
+</section>
+
+<!-- Day 3 -->
+<section>
+<details>
+<summary>Day 3: Text Shadows & Typography Effects</summary>
+<p><strong>Learn:</strong> Text shadows enhance headings with <code>text-shadow</code> and CSS controls font-weight, style, and spacing. <strong>See:</strong><br>
+<pre>
+h1 {text-shadow: 2px 2px 5px gray;}
+p {letter-spacing: 1px; line-height:1.5;}
+</pre>
+<strong>Do:</strong> Apply a subtle shadow to your headings and adjust paragraph letter-spacing for readability. <strong>Check:</strong> Open in a browser and see how typography changes the visual hierarchy.</p>
+</details>
+</section>
+
+<!-- Day 4 -->
+<section>
+<details>
+<summary>Day 4: Gradients</summary>
+<p><strong>Learn:</strong> CSS gradients create smooth color transitions. Linear gradients go from top to bottom or left to right. <strong>See:</strong><br>
+<pre>
+div {background: linear-gradient(to right, #ff7e5f, #feb47b);}
+</pre>
+<strong>Do:</strong> Add a gradient background to a section or box. <strong>Check:</strong> Open the browser to see the gradient and try changing directions or colors.</p>
+</details>
+</section>
+
+<!-- Day 5 -->
+<section>
+<details>
+<summary>Day 5: Hover Effects</summary>
+<p><strong>Learn:</strong> Use <code>:hover</code> pseudo-class for interactive effects. <strong>See:</strong><br>
+<pre>
+a:hover {color: red; text-decoration: underline;}
+div:hover {background-color: #eee;}
+</pre>
+<strong>Do:</strong> Add hover effects to links and sections on your page. <strong>Check:</strong> Move your mouse over the elements to verify effects.</p>
+</details>
+</section>
+
+<!-- Day 6 -->
+<section>
+<details>
+<summary>Day 6: Combining Effects</summary>
+<p><strong>Learn:</strong> You can combine multiple styles: borders, shadows, gradients, and hover effects together. <strong>See:</strong><br>
+<pre>
+div.card {
+  border-radius: 10px; 
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+  background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+}
+div.card:hover {transform: scale(1.05);}
+</pre>
+<strong>Do:</strong> Apply combined styles to a box or card on your page. <strong>Check:</strong> Observe how hover and shadows improve visual appeal.</p>
+</details>
+</section>
+
+<!-- Day 7 -->
+<section>
+<details>
+<summary>Day 7: Review & Styled Mini Page</summary>
+<p><strong>Learn:</strong> Combine all Week 5 styling techniques: rounded corners, shadows, gradients, text shadows, and hover effects. <strong>Do:</strong> Enhance your profile page with at least one section using these effects. <strong>Check:</strong> Open in a browser to ensure styles display correctly and that hover effects and shadows improve the visual design.</p>
+</details>
+</section>
+
+</body>
+</html>
