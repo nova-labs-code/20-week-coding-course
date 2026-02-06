@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 9: JavaScript Basics</title>
+<style>
+body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
+h1,h2,h3{color:#1e90ff;}
+section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
+details {margin-top:10px;margin-bottom:10px;}
+summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
+pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
+code {background:#eee;padding:2px 4px;border-radius:3px;}
+</style>
+</head>
+<body>
+
+<h1>Week 9: JavaScript Basics – Variables & Console</h1>
+<p>This week introduces **JavaScript fundamentals** to add interactivity. Each day is ~30 minutes with examples to try in the browser console or in script tags.</p>
+
+<!-- Day 1 -->
+<section>
+<details open>
+<summary>Day 1: Introduction to JavaScript & Console</summary>
+<p><strong>Learn:</strong> JavaScript adds dynamic behavior to web pages. Use <code>console.log()</code> to print messages for debugging. <strong>See:</strong><br>
+<pre>
+console.log("Hello, world!");
+</pre>
+<strong>Do:</strong> Open your browser console and type <code>console.log("My name is [Your Name]")</code>. <strong>Check:</strong> Verify the message appears in the console.</p>
+</details>
+</section>
+
+<!-- Day 2 -->
+<section>
+<details>
+<summary>Day 2: Variables (let, const, var)</summary>
+<p><strong>Learn:</strong> Variables store data. Use <code>let</code> for changeable values, <code>const</code> for constants, <code>var</code> (older). <strong>See:</strong><br>
+<pre>
+let age = 15;
+const name = "Elisha";
+var hobby = "coding";
+console.log(name, age, hobby);
+</pre>
+<strong>Do:</strong> Create 3 variables for your favorite color, food, and game. <strong>Check:</strong> Log them to the console to confirm.</p>
+</details>
+</section>
+
+<!-- Day 3 -->
+<section>
+<details>
+<summary>Day 3: Data Types & typeof</summary>
+<p><strong>Learn:</strong> JS data types include <code>string</code>, <code>number</code>, <code>boolean</code>, <code>object</code>, <code>undefined</code>. Use <code>typeof</code> to check type. <strong>See:</strong><br>
+<pre>
+let score = 100;
+let isOnline = true;
+console.log(typeof score);  // number
+console.log(typeof isOnline); // boolean
+</pre>
+<strong>Do:</strong> Create 2 variables of different types and log their types. <strong>Check:</strong> Verify results in the console.</p>
+</details>
+</section>
+
+<!-- Day 4 -->
+<section>
+<details>
+<summary>Day 4: Basic Arithmetic</summary>
+<p><strong>Learn:</strong> JS supports arithmetic: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>. <strong>See:</strong><br>
+<pre>
+let x = 10;
+let y = 3;
+console.log(x + y); // 13
+console.log(x % y); // 1
+</pre>
+<strong>Do:</strong> Calculate your age next year, or the remainder when dividing two numbers. <strong>Check:</strong> Verify results in console.</p>
+</details>
+</section>
+
+<!-- Day 5 -->
+<section>
+<details>
+<summary>Day 5: Strings & Concatenation</summary>
+<p><strong>Learn:</strong> Strings can be combined with <code>+</code> or template literals <code>`Hello ${name}`</code>. <strong>See:</strong><br>
+<pre>
+let firstName = "Elisha";
+let lastName = "Samson";
+console.log("Hello " + firstName + " " + lastName);
+console.log(`Hello ${firstName} ${lastName}`);
+</pre>
+<strong>Do:</strong> Create a greeting message with your name using both methods. <strong>Check:</strong> Console shows the correct greeting.</p>
+</details>
+</section>
+
+<!-- Day 6 -->
+<section>
+<details>
+<summary>Day 6: User Interaction with prompt</summary>
+<p><strong>Learn:</strong> Prompt collects user input. <strong>See:</strong><br>
+<pre>
+let age = prompt("Enter your age:");
+console.log("You are " + age + " years old.");
+</pre>
+<strong>Do:</strong> Prompt for your favorite hobby and display it in console. <strong>Check:</strong> Enter values to verify prompt works.</p>
+</details>
+</section>
+
+<!-- Day 7 -->
+<section>
+<details>
+<summary>Day 7: Review & Mini JS Console Exercise</summary>
+<p><strong>Learn:</strong> Combine variables, types, arithmetic, strings, and prompt to create small console interactions. <strong>Do:</strong> Write a program asking for name and age, then log a message like "Hello [Name], next year you will be [age+1]". <strong>Check:</strong> Open console to see if program works correctly. This completes Week 9.</p>
+</details>
+</section>
+
+</body>
+</html>
