@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 8: CSS Grid & Responsive</title>
+<style>
+body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
+h1,h2,h3{color:#1e90ff;}
+section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
+details {margin-top:10px;margin-bottom:10px;}
+summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
+pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
+code {background:#eee;padding:2px 4px;border-radius:3px;}
+</style>
+</head>
+<body>
+
+<h1>Week 8: CSS Grid & Responsive</h1>
+<p>This week teaches <strong>CSS Grid</strong> for powerful layouts and responsive techniques to adapt pages to different screens.</p>
+
+<!-- Day 1 -->
+<section>
+<details open>
+<summary>Day 1: Introduction to CSS Grid</summary>
+<p><strong>Learn:</strong> Grid allows 2D layouts. Example:<br>
+<pre>
+.container {display: grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;}
+</pre>
+<strong>Do:</strong> Create a container with 3 columns and 3 boxes. <strong>Check:</strong> Open the browser to see boxes aligned in a grid.</p>
+</details>
+</section>
+
+<!-- Day 2 -->
+<section>
+<details>
+<summary>Day 2: Grid Rows & Columns</summary>
+<p><strong>Learn:</strong> You can define explicit row and column sizes using <code>grid-template-rows</code> and <code>grid-template-columns</code>. Example:<br>
+<pre>
+.container {grid-template-columns: 100px 200px 100px; grid-template-rows: 50px 100px;}
+</pre>
+<strong>Do:</strong> Create a container with three columns of different widths and two rows of different heights. <strong>Check:</strong> Open the browser and confirm boxes match the specified row heights and column widths.</p>
+</details>
+</section>
+
+<!-- Day 3 -->
+<section>
+<details>
+<summary>Day 3: Grid Gaps & Alignment</summary>
+<p><strong>Learn:</strong> Use <code>gap</code> for spacing between rows and columns. Align content using <code>justify-items</code> and <code>align-items</code>. Example:<br>
+<pre>
+.container {display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; justify-items: center; align-items: center;}
+</pre>
+<strong>Do:</strong> Apply gaps between grid items and align them in the center. <strong>Check:</strong> Open in a browser to see proper spacing and alignment of items.</p>
+</details>
+</section>
+
+<!-- Day 4 -->
+<section>
+<details>
+<summary>Day 4: Grid Areas</summary>
+<p><strong>Learn:</strong> Named grid areas allow you to assign boxes to specific regions of the grid. Example:<br>
+<pre>
+.container {
+  display: grid;
+  grid-template-areas: 
+    "header header header"
+    "sidebar main main"
+    "footer footer footer";
+  grid-gap:10px;
+}
+.header {grid-area: header;}
+.sidebar {grid-area: sidebar;}
+.main {grid-area: main;}
+.footer {grid-area: footer;}
+</pre>
+<strong>Do:</strong> Create a layout using grid areas for header, sidebar, main, and footer. <strong>Check:</strong> Open browser to verify items occupy the correct grid regions.</p>
+</details>
+</section>
+
+<!-- Day 5 -->
+<section>
+<details>
+<summary>Day 5: Responsive Grid</summary>
+<p><strong>Learn:</strong> Use media queries to make grid layouts adapt to screen size. Example:<br>
+<pre>
+@media (max-width: 600px) {
+  .container {grid-template-columns: 1fr; grid-template-rows: auto;}
+}
+</pre>
+<strong>Do:</strong> Make your 3-column layout stack into 1 column on small screens. <strong>Check:</strong> Resize the browser or use device mode to ensure the layout responds correctly.</p>
+</details>
+</section>
+
+<!-- Day 6 -->
+<section>
+<details>
+<summary>Day 6: Grid Templates & Repeat</summary>
+<p><strong>Learn:</strong> The <code>repeat()</code> function simplifies grid templates. Example:<br>
+<pre>
+.container {grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 150px);}
+</pre>
+<strong>Do:</strong> Apply repeat to your columns and rows for concise code. <strong>Check:</strong> Open in the browser to see equal columns and rows set by repeat.</p>
+</details>
+</section>
+
+<!-- Day 7 -->
+<section>
+<details>
+<summary>Day 7: Review & Responsive Grid Page</summary>
+<p><strong>Learn:</strong> Combine everything learned in Week 8: explicit rows/columns, gaps, alignment, named grid areas, and responsive media queries. <strong>Do:</strong> Build a responsive profile page with header, main content, sidebar, and footer using CSS Grid. <strong>Check:</strong> Open the browser to verify items are correctly aligned, spaced, and adapt to different screen sizes. This completes Week 8.</p>
+</details>
+</section>
+
+</body>
+</html>
