@@ -5,25 +5,66 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 7: CSS Typography & Media</title>
 <style>
-body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
-h1,h2,h3{color:#1e90ff;}
-section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
-details {margin-top:10px;margin-bottom:10px;}
-summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
-pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
-code {background:#eee;padding:2px 4px;border-radius:3px;}
+/* =====================
+   FULL WIDTH & LAYOUT
+   ===================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f5f5f5;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* =====================
+   DISABLE COPYING
+   ===================== */
+* {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+img, a { -webkit-user-drag: none !important; user-drag: none !important; pointer-events: none !important; }
+::selection { background: transparent; }
+::-moz-selection { background: transparent; }
+
+/* =====================
+   CONTENT STYLING
+   ===================== */
+main { width: 100%; padding: 20px; box-sizing: border-box; }
+h1,h2,h3 { color: #1e90ff; }
+section { background: #fff; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+details { margin-top: 10px; margin-bottom: 10px; }
+summary { cursor: pointer; font-weight: bold; padding: 10px; border-radius: 4px; background: #eee; font-size: 1.1em; }
+pre, code { background: #eee; padding: 10px; border-radius: 6px; overflow-x: auto; }
+.tip { background: #e8f4ff; padding: 10px; border-left: 4px solid #1e90ff; margin-top: 10px; }
 </style>
 </head>
 <body>
 
+<main>
 <h1>Week 7: CSS Typography & Media</h1>
-<p>This week focuses on typography and adding media like images and videos, using fonts, sizes, line-heights, and responsive image techniques.</p>
+<p>This week focuses on **advanced typography and media integration**: fonts, line-heights, letter-spacing, text alignment, responsive images, and embedding videos. Lessons include multiple examples, exercises, and tips for best practices.</p>
 
 <!-- Day 1 -->
 <section>
 <details open>
 <summary>Day 1: Font Families & Sizes</summary>
-<p><strong>Learn:</strong> CSS controls fonts using <code>font-family</code> and <code>font-size</code>. <strong>See:</strong> <pre>p {font-family: 'Courier New', monospace; font-size:16px;}</pre> <strong>Do:</strong> Change fonts and sizes of headings and paragraphs. <strong>Check:</strong> Open browser to see differences.</p>
+<p><strong>Learn:</strong> CSS lets you control fonts with <code>font-family</code> and text size with <code>font-size</code>. Using a combination of web-safe fonts and custom fonts improves readability and design consistency.</p>
+<p><strong>See:</strong></p>
+<pre>
+p { font-family: 'Courier New', monospace; font-size:16px; }
+h1 { font-family: 'Georgia', serif; font-size:32px; }
+</pre>
+<p><strong>Do:</strong> Apply different fonts to headings, paragraphs, and sections. Experiment with font-size for emphasis.</p>
+<p><strong>Check:</strong> Open in the browser and notice how font choices affect readability and style.</p>
+<div class="tip"><strong>Tip:</strong> Use serif fonts for headings and sans-serif for body text to improve readability.</div>
 </details>
 </section>
 
@@ -31,15 +72,31 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 2: Line-height & Letter-spacing</summary>
-<p><strong>Learn:</strong> <code>line-height</code> controls spacing between lines, <code>letter-spacing</code> for space between letters. <strong>See:</strong> <pre>p {line-height:1.8; letter-spacing:1px;}</pre> <strong>Do:</strong> Adjust spacing on paragraphs and headings. <strong>Check:</strong> Browser shows improved readability.</p>
+<p><strong>Learn:</strong> Adjust spacing between lines with <code>line-height</code> and spacing between letters with <code>letter-spacing</code>. Proper spacing improves readability and visual hierarchy.</p>
+<p><strong>See:</strong></p>
+<pre>
+p { line-height: 1.8; letter-spacing: 1px; }
+h2 { line-height: 1.4; letter-spacing: 2px; }
+</pre>
+<p><strong>Do:</strong> Modify line-height and letter-spacing for your paragraphs and headings. Compare changes to see which combinations are easiest to read.</p>
+<p><strong>Check:</strong> Browser shows text with clear spacing, easier on the eyes.</p>
+<div class="tip"><strong>Tip:</strong> Larger line-height improves readability for long paragraphs, while slight letter-spacing can improve headings.</div>
 </details>
 </section>
 
 <!-- Day 3 -->
 <section>
 <details>
-<summary>Day 3: Text Alignment & Decoration</summary>
-<p><strong>Learn:</strong> CSS allows <code>text-align</code>, <code>text-decoration</code>, and <code>text-transform</code>. <strong>See:</strong> <pre>h2 {text-align:center; text-transform:uppercase;}</pre> <strong>Do:</strong> Center headings and apply text transformations. <strong>Check:</strong> Browser shows updated typography.</p>
+<summary>Day 3: Text Alignment, Decoration & Transform</summary>
+<p><strong>Learn:</strong> Control text layout with <code>text-align</code>, style text with <code>text-decoration</code> and <code>text-transform</code> for uppercase, lowercase, or capitalized text.</p>
+<p><strong>See:</strong></p>
+<pre>
+h2 { text-align: center; text-transform: uppercase; }
+a { text-decoration: none; color: #1e90ff; }
+</pre>
+<p><strong>Do:</strong> Center headings, remove underlines from links, or capitalize certain sections.</p>
+<p><strong>Check:</strong> Browser shows clean, styled text with proper alignment and transformations.</p>
+<div class="tip"><strong>Tip:</strong> Combine text-transform and font-weight to make headings visually striking.</div>
 </details>
 </section>
 
@@ -47,7 +104,14 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 4: Responsive Images</summary>
-<p><strong>Learn:</strong> Make images scale using <code>width:100%; max-width:400px;</code>. <strong>See:</strong> <pre>img {width:100%; max-width:400px;}</pre> <strong>Do:</strong> Add images to your page and ensure they resize. <strong>Check:</strong> Resize browser to see responsiveness.</p>
+<p><strong>Learn:</strong> Images should scale for different screen sizes. Use <code>width:100%; max-width:400px;</code> to make images responsive.</p>
+<p><strong>See:</strong></p>
+<pre>
+img { width: 100%; max-width: 400px; height: auto; border-radius: 8px; }
+</pre>
+<p><strong>Do:</strong> Add images to your page and test resizing the browser to see the images scale correctly.</p>
+<p><strong>Check:</strong> Browser shows images resizing without distortion, maintaining aspect ratio.</p>
+<div class="tip"><strong>Tip:</strong> Use images that are high-quality but optimized for web to prevent slow loading.</div>
 </details>
 </section>
 
@@ -55,7 +119,19 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 5: Embedding Videos</summary>
-<p><strong>Learn:</strong> Use <code>&lt;video&gt;</code> or <code>&lt;iframe&gt;</code> for media. <strong>See:</strong> <pre>&lt;video width="320" controls&gt;&lt;source src="video.mp4" type="video/mp4"&gt;&lt;/video&gt;</pre> <strong>Do:</strong> Embed a sample video or YouTube iframe. <strong>Check:</strong> Browser plays media correctly.</p>
+<p><strong>Learn:</strong> Add video using <code>&lt;video&gt;</code> or <code>&lt;iframe&gt;</code>. Control size and responsiveness to fit page design.</p>
+<p><strong>See:</strong></p>
+<pre>
+&lt;video width="320" controls&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/example" 
+  frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+</pre>
+<p><strong>Do:</strong> Embed a local video or YouTube video. Ensure it fits within the page layout and scales if necessary.</p>
+<p><strong>Check:</strong> Browser plays video correctly with controls.</p>
+<div class="tip"><strong>Tip:</strong> Use autoplay sparingly; always include controls for user experience.</div>
 </details>
 </section>
 
@@ -63,7 +139,17 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 6: Web-safe Fonts & Google Fonts</summary>
-<p><strong>Learn:</strong> Use web-safe fonts or include Google Fonts with <code>@import</code>. <strong>See:</strong> <pre>@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');</pre> <strong>Do:</strong> Apply a Google Font to headings. <strong>Check:</strong> Browser shows new font applied.</p>
+<p><strong>Learn:</strong> Use web-safe fonts for reliability or import Google Fonts for custom design. Include fonts in CSS with <code>@import</code> or <code>&lt;link&gt;</code> in &lt;head&gt;.</p>
+<p><strong>See:</strong></p>
+<pre>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body { font-family: 'Roboto', sans-serif; }
+h1 { font-family: 'Roboto', sans-serif; font-weight: 700; }
+</pre>
+<p><strong>Do:</strong> Apply a Google Font to headings or body text. Compare web-safe vs Google Fonts for design impact.</p>
+<p><strong>Check:</strong> Browser shows custom font applied correctly.</p>
+<div class="tip"><strong>Tip:</strong> Combine fonts wisely: one for headings, one for body text. Avoid too many fonts on the same page.</div>
 </details>
 </section>
 
@@ -71,9 +157,37 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 7: Review & Typographic Page</summary>
-<p><strong>Learn:</strong> Combine all typography and media skills. <strong>Do:</strong> Enhance your profile page with styled text, responsive images, and embedded video. <strong>Check:</strong> Browser displays readable typography and properly scaled media.</p>
+<p><strong>Learn:</strong> Combine all Week 7 techniques: font families, sizes, line-height, letter-spacing, text alignment, responsive images, and embedded videos to create a professional page.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Style headings and paragraphs with fonts, size, spacing, and alignment.</li>
+<li>Add at least two responsive images and one embedded video.</li>
+<li>Ensure text and media scale properly across different devices.</li>
+<li>Use Google Fonts for headings or body for consistent design.</li>
+</ul>
+<p><strong>Check:</strong> Open in browser; text should be readable, images scale nicely, and video functions correctly.</p>
+<div class="tip"><strong>Tip:</strong> Consistency in typography and media placement improves UX and visual appeal.</div>
 </details>
 </section>
+
+</main>
+
+<script>
+// Disable right-click
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Disable copy, cut, paste, select, drag
+['copy','cut','paste','selectstart','dragstart'].forEach(event => {
+  document.addEventListener(event, e => e.preventDefault());
+});
+
+// Disable keyboard shortcuts (Ctrl/Cmd + C/X/V/A/S/U/P)
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && ['c','x','v','a','s','u','p'].includes(e.key.toLowerCase())) {
+    e.preventDefault();
+  }
+});
+</script>
 
 </body>
 </html>
