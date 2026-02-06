@@ -3,84 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>20-Week Web Development Course Hub</title>
+<title>20-Week Web Development Course</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f0f4f8;
-    color: #333;
-  }
-  header {
-    background: #1e90ff;
-    color: #fff;
-    padding: 30px 20px;
-    text-align: center;
-  }
-  header h1 { margin: 0; font-size: 2rem; }
-  header p { margin-top: 10px; font-size: 1.1rem; }
-  main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-    gap: 15px;
-  }
-  .week-card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    width: 180px;
-    text-align: center;
-    padding: 20px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-decoration: none;
-    color: #333;
-  }
-  .week-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  }
-  .week-card h2 { margin: 0 0 10px 0; color: #1e90ff; }
-  .week-card p { margin: 0; font-size: 0.9rem; }
-  .pro-week { background: #fff7e6; border: 2px solid #ffa500; }
-  .pro-week h2 { color: #ff8c00; }
+/* ===== Global Styles ===== */
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: #1e90ff;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+header p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* ===== Week Cards ===== */
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.week-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.week-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.week-card h2 {
+  color: #1e90ff;
+  margin-top: 0;
+}
+.week-card p {
+  margin: 10px 0;
+  line-height: 1.5;
+}
+.week-card a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #fff;
+  background: #1e90ff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.week-card a:hover {
+  background: #0d6efd;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background: #1e90ff;
+  color: #fff;
+  margin-top: 50px;
+}
+footer p {
+  margin: 0;
+  font-size: 0.95em;
+}
 </style>
 </head>
 <body>
 
 <header>
   <h1>20-Week Web Development Course</h1>
-  <p>Learn HTML, CSS, JavaScript, JSON, and how to build clean, professional, and popular websites!</p>
+  <p>Learn HTML, CSS, JS, JSON & site management — ~5 minutes daily quick learning</p>
 </header>
 
-<main>
-  <!-- Weeks 1–14: Learning -->
-  <a href="week1.html" class="week-card"><h2>Week 1</h2><p>HTML Basics</p></a>
-  <a href="week2.html" class="week-card"><h2>Week 2</h2><p>HTML Intermediate</p></a>
-  <a href="week3.html" class="week-card"><h2>Week 3</h2><p>HTML Advanced</p></a>
-  <a href="week4.html" class="week-card"><h2>Week 4</h2><p>HTML Accessibility & Attributes</p></a>
-  <a href="week5.html" class="week-card"><h2>Week 5</h2><p>CSS Basics</p></a>
-  <a href="week6.html" class="week-card"><h2>Week 6</h2><p>CSS Box Model & Layout</p></a>
-  <a href="week7.html" class="week-card"><h2>Week 7</h2><p>CSS Flexbox & Grid</p></a>
-  <a href="week8.html" class="week-card"><h2>Week 8</h2><p>CSS Advanced: Transitions & Animations</p></a>
-  <a href="week9.html" class="week-card"><h2>Week 9</h2><p>JS Basics</p></a>
-  <a href="week10.html" class="week-card"><h2>Week 10</h2><p>JS Logic: Loops & Functions</p></a>
-  <a href="week11.html" class="week-card"><h2>Week 11</h2><p>JS DOM Manipulation</p></a>
-  <a href="week12.html" class="week-card"><h2>Week 12</h2><p>JS Events & Interactivity</p></a>
-  <a href="week13.html" class="week-card"><h2>Week 13</h2><p>JSON Basics</p></a>
-  <a href="week14.html" class="week-card"><h2>Week 14</h2><p>JSON + JS Integration</p></a>
+<div class="container">
+  <div class="week-grid">
 
-  <!-- Weeks 15–20: Pro / Doing it Right -->
-  <a href="week15.html" class="week-card pro-week"><h2>Week 15</h2><p>Clean & Semantic HTML</p></a>
-  <a href="week16.html" class="week-card pro-week"><h2>Week 16</h2><p>Clean & Organized CSS</p></a>
-  <a href="week17.html" class="week-card pro-week"><h2>Week 17</h2><p>Clean & Efficient JS</p></a>
-  <a href="week18.html" class="week-card pro-week"><h2>Week 18</h2><p>JSON Best Practices</p></a>
-  <a href="week19.html" class="week-card pro-week"><h2>Week 19</h2><p>Optimization & UX</p></a>
-  <a href="week20.html" class="week-card pro-week"><h2>Week 20</h2><p>SEO, Promotion & Maintenance</p></a>
-</main>
+    <!-- Weeks 1–14: Coding -->
+    <div class="week-card">
+      <h2>Week 1: HTML Basics</h2>
+      <p>Introduction to HTML structure, headings, paragraphs, and links.</p>
+      <a href="week1.html">Go to Week 1</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 2: HTML Advanced</h2>
+      <p>Lists, images, tables, and forms for interactive content.</p>
+      <a href="week2.html">Go to Week 2</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 3: HTML Semantic Tags</h2>
+      <p>Learn semantic elements like &lt;header&gt;, &lt;footer&gt;, &lt;article&gt;, &lt;section&gt;.</p>
+      <a href="week3.html">Go to Week 3</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 4: CSS Basics</h2>
+      <p>Selectors, properties, colors, fonts, margins, and padding.</p>
+      <a href="week4.html">Go to Week 4</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 5: CSS Advanced</h2>
+      <p>Flexbox, positioning, pseudo-classes, and transitions.</p>
+      <a href="week5.html">Go to Week 5</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 6: CSS Styling Projects</h2>
+      <p>Practical styling exercises combining multiple properties and layouts.</p>
+      <a href="week6.html">Go to Week 6</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 7: JavaScript Basics</h2>
+      <p>Variables, operators, conditions, loops, and basic functions.</p>
+      <a href="week7.html">Go to Week 7</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 8: JavaScript Events & DOM</h2>
+      <p>Learn to interact with the page: events, buttons, input, and DOM manipulation.</p>
+      <a href="week8.html">Go to Week 8</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 9: JavaScript Arrays & Objects</h2>
+      <p>Work with data structures to organize and manipulate content.</p>
+      <a href="week9.html">Go to Week 9</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 10: JSON Basics</h2>
+      <p>Learn JSON format, storing data, and loading it into your site.</p>
+      <a href="week10.html">Go to Week 10</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 11: JS + JSON Integration</h2>
+      <p>Dynamic page content with JavaScript pulling data from JSON.</p>
+      <a href="week11.html">Go to Week 11</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 12: Responsive CSS</h2>
+      <p>Media queries, flexible grids, and mobile-first layouts.</p>
+      <a href="week12.html">Go to Week 12</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 13: CSS Grid</h2>
+      <p>Powerful 2D layout system with grid rows, columns, and gaps.</p>
+      <a href="week13.html">Go to Week 13</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 14: Mini Projects</h2>
+      <p>Combine HTML, CSS, and JS in small interactive exercises.</p>
+      <a href="week14.html">Go to Week 14</a>
+    </div>
+
+    <!-- Weeks 15–20: Site Management & Growth -->
+    <div class="week-card">
+      <h2>Week 15: Strategy & Purpose</h2>
+      <p>Define website goals, audience, structure, branding, and content plan.</p>
+      <a href="week15.html">Go to Week 15</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 16: UX & Design</h2>
+      <p>Navigation, mobile-first design, accessibility, hierarchy, and feedback systems.</p>
+      <a href="week16.html">Go to Week 16</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 17: Content & SEO</h2>
+      <p>Keywords, meta tags, internal linking, formatting, and page performance.</p>
+      <a href="week17.html">Go to Week 17</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 18: Promotion & Social</h2>
+      <p>Social media, shareable content, email marketing, and audience engagement.</p>
+      <a href="week18.html">Go to Week 18</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 19: Analytics & Optimization</h2>
+      <p>Track metrics, conversion rates, A/B tests, performance, and responsive checks.</p>
+      <a href="week19.html">Go to Week 19</a>
+    </div>
+    <div class="week-card">
+      <h2>Week 20: Launch & Growth</h2>
+      <p>Final launch, security, backups, monitoring, continuous improvement, and planning growth.</p>
+      <a href="week20.html">Go to Week 20</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Web Course. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
